@@ -155,3 +155,6 @@ export const products = [
       " ingredients  : soap base, honey, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E ), rose  water, aloevera gel, fragrance",
   },
 ];
+export const Colors ={
+  mainTheme1:'#312B47'
+}

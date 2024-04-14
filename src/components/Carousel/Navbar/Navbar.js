@@ -9,7 +9,7 @@ function Navbar() {
         {/* Brand name */}
         <div>
           <Link
-            to='/'
+            to='/product-list'
             className='text-gray-800 text-xl font-bold md:text-2xl hover:text-yellow-900'
           >
       NABAL-BAR
@@ -18,7 +18,7 @@ function Navbar() {
 
         {/* Navigation links */}
         <div className='flex space-x-4'>
-          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/product-list'>Home</NavLink>
           <NavLink to='/shop'>Shop</NavLink>
           <NavLink to='/contact'>Contact</NavLink>
           <NavLink to='/about'>About</NavLink>

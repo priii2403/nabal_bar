@@ -16,7 +16,8 @@ const firebaseConfig = {
   storageBucket: "nabal-bar.appspot.com",
   messagingSenderId: "916635049164",
   appId: "1:916635049164:web:83cc8209fc8566938fb669",
-  measurementId: "G-B6789V6FX8"
+  measurementId: "G-B6789V6FX8",
+  databaseURL: "https://nabal-bar-default-rtdb.firebaseio.com",
 };
 
 // Initialize Firebase

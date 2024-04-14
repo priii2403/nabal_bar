@@ -19,9 +19,10 @@ import { Carousel } from "react-responsive-carousel";
 const StorageList = () => {
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
-
+const [loading, setloading] = useState(false)
   useEffect(() => {
     const ftechdata = async () => {
+      setloading(true)
       try {
         const db = getStorage();
         const promises = products.map(async (product) => {
@@ -32,8 +33,10 @@ const StorageList = () => {
         const productData = await Promise.all(promises);
         console.log("Product data:", productData);
         setFiles(productData);
+        setloading(false)
       } catch (error) {
         console.log(error);
+        setloading(false)
       }
     };
     ftechdata();
@@ -47,8 +50,16 @@ const StorageList = () => {
       console.error("Navigation error:", err);
     }
   };
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="loader"></div>
+      </div>
+    ); // Display full-screen loader
+  }
   return (
-    <div className="px-20 py-10">
+    <div className="px-5 py-10 ">
+      
       <Carousel showThumbs={false} infiniteLoop={true} interval={2000}>
         {files.slice(0, 5).map((file, index) => (
           <div key={index} style={{ height: "500px" }}>
@@ -64,7 +75,8 @@ const StorageList = () => {
         <h2 style={{ fontSize: "28px", textAlign: "center" }}>Our Products</h2>
       </div>
       <div className="py-10">
-        <div className="card-container">
+        {/* <div className="card-container"> */}
+        <div className='GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3'>
           {files.map((file, index) => (
             <div
               className="card"
@@ -74,7 +86,10 @@ const StorageList = () => {
             >
               <img src={file.url} alt={file.name} className="card-img-top" />
               <div className="card-body">
-                <h5 className="card-title">{file.name}</h5>
+                <h5  className='font-bold'>{file.name}</h5>
+                <span className='block text-gray-500 text-sm'>
+            ${800}
+          </span>
               </div>
             </div>
           ))}
