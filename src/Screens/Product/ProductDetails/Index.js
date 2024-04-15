@@ -10,11 +10,11 @@ const Index = () => {
   const { id, name, url, ingredients } = location.state.file;
 
   return (
-    <main className="mt-0 md:mt-20 w-screen h-screen md:h-full md:mb-60  ">
+    <main  className="mt-0 md:mt-20 w-screen h-screen md:h-full md:mb-60   ">
       <div className="flex flex-col md:flex-row justify-center gap-x-12 ">
         <div className="flex flex-col relative">
           <img
-            class="h-120 mx-auto w-full md:h-full md:rounded-md  max-w-lg"
+            class="h-120 mx-auto w-full md:h-full md:rounded-md mt-10 mb-10 max-w-lg"
             src={url}
             alt={name}
             // style={{ height: '100', width: '100', maxWidth: '50%' }}
@@ -22,7 +22,7 @@ const Index = () => {
          
         </div>
         <div className="flex flex-col w-full p-6 md:p-0 md:w-72 ">
-          <h1 className="font-bold text-yellow-900 text-3xl">{name}</h1>
+          <h1 className="font-bold text-green-900 text-3xl mt-10">{name}</h1>
           <span
             dangerouslySetInnerHTML={{ __html: "100gm" }}
             className="block text-gray-500 text-sm"
@@ -35,7 +35,8 @@ const Index = () => {
           <div className="mt-2  0">
             <button
               // onClick={() => onAddToCart(id)}
-              className="flex uppercase mt-5 px-3 py-2 bg-yellow-900 text-white text-sm font-medium rounded hover:bg-yellow-800 focus:outline-none focus:bg-yellow-800 disabled:opacity-30"
+              style={{backgroundColor:"#8a9557"}}
+              className="flex uppercase mt-5 px-3 py-2 text-white text-sm font-medium rounded hover:bg-yellow-800 focus:outline-none focus:bg-yellow-800 disabled:opacity-30"
               // disabled={item.is.sold_out}
             >
               {false ? <p>Sold Out</p> : <p>Add to Cart</p>}{" "}
