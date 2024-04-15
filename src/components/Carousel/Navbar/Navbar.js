@@ -19,7 +19,7 @@ function Navbar() {
         {/* Navigation links */}
         <div className='flex space-x-4'>
           <NavLink to='/product-list'>Home</NavLink>
-          <NavLink to='/shop'>Shop</NavLink>
+          {/* <NavLink to='/shop'>Shop</NavLink> */}
           <NavLink to='/contact'>Contact</NavLink>
           <NavLink to='/about'>About</NavLink>
         </div>

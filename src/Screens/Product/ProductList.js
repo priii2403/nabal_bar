@@ -72,13 +72,13 @@ const [loading, setloading] = useState(false)
         ))}
       </Carousel>
       <div className="products-header">
-        <h2 style={{ fontSize: "28px", textAlign: "center" }}>Our Products</h2>
+        <h2 style={{ fontSize: "28px", textAlign: "center",color:"green" }}>Our Products</h2>
       </div>
       <div className="py-10">
         {/* <div className="card-container"> */}
-        <div className='GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3'>
+        <div  className='GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3'>
           {files.map((file, index) => (
-            <div
+            <div style={{backgroundColor:'#F1F9E3'}}
               className="card"
               onClick={() => {
                 handleSubmit(index, file);

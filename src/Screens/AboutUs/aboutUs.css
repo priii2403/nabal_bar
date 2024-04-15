@@ -1,0 +1,45 @@
+.about-us-container {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .image-container {
+    width: 33.33%; /* One-third of the page */
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .quote-box {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .quote-text {
+    font-size: 14px;
+    padding: 10px;
+    font-style: italic; 
+  }
+  
+  .content-container {
+    flex: 1; /* Take up remaining space */
+    padding: 0 50px; /* Add some padding for spacing */
+  }
+  .contactHeader h2 {
+    text-decoration: underline;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: '#5D7132';
+  }
