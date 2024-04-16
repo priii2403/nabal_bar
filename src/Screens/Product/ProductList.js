@@ -67,11 +67,12 @@ const ProductList = () => {
       <div className="products-header">
         <h2 style={{ fontSize: "28px", textAlign: "center", color: "green" }}>Our Products</h2>
       </div>
-      <div className="py-10">
-        <div className="GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3">
+      <div  style={{ backgroundColor: "#F1F9E3" }}className="py-10">
+        <div  className="GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3">
           {visibleProducts.map((file, index) => (
             <div
               key={index}
+              style={{backgroundColor:"#ffff"}}
               className="card"
               onClick={() => {
                 handleSubmit(index, file);
@@ -123,8 +124,50 @@ const ProductList = () => {
               </h1>
             </div>
           </div>
+        
           <div className="GridContainer mt-0 p-10 md:px-16 grid gap-10 md:grid-cols-3">
-            {/* Recommended products */}
+            <div style={{backgroundColor: "#8A9557" }} class="R-card">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1679064286963-a23c975812f3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Card Image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 class="card-tit" style={{color:"white"}} > Clinically Tested</h3>
+
+                <a href="#" class="card-link">
+                  Healthy + Handmade
+                </a>
+              </div>
+            </div>
+            <div style={{backgroundColor: "#8A9557" }} class="R-card">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1684407616836-7943cf1f3192?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Card Image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 class="card-tit" style={{color:"white"}} > No Chemicals</h3>
+
+                <a href="#" class="card-link">
+                  Palm free with absolutley no toxins
+                </a>
+              </div>
+            </div>
+            <div style={{backgroundColor: "#8A9557" }}  class="R-card">
+              <img
+                src="https://images.unsplash.com/photo-1661450159298-d58a3b98f3a4?q=80&w=2960&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Card Image"
+                class="card-image"
+              />
+              <div class="card-content">
+                <h3 style={{color:"white"}} class="card-tit"> Natural Ingrediants</h3>
+
+                <a href="#" class="card-link">
+                  Highest Quality of plant-based materials
+                </a>
+              </div>
+            </div>
           </div>
         </div>
     
