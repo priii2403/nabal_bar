@@ -1,0 +1,14 @@
+.navbar {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    /* Add your other styles here */
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    /* Add any additional styles for sticky navbar here */
+  }
+  

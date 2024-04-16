@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-import { products } from "../../components/utils";
+import { carousel_image, products } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -56,18 +56,18 @@ const ProductList = () => {
   const visibleProducts = showMore ? files : files.slice(0, initialProductsToShow);
 
   return (
-    <div className="px-5 py-10">
+    <div className="px-0 py-0">
       <Carousel showThumbs={false} infiniteLoop={true} interval={2000} dynamicHeight={true}>
-        {files.slice(7, 12).map((file, index) => (
+        {carousel_image.map((file, index) => (
           <div key={index} style={{ height: "300px" }}>
-            <img src={file.url} alt={file.name} style={{ maxWidth: "100%", maxHeight: "170%" }} />
+            <img src={file} alt={file} style={{ maxWidth: "100%", maxHeight: "170%" }} />
           </div>
         ))}
       </Carousel>
       <div className="products-header">
         <h2 style={{ fontSize: "28px", textAlign: "center", color: "green" }}>Our Products</h2>
       </div>
-      <div  style={{ backgroundColor: "#F1F9E3" }}className="py-10">
+      <div  style={{ backgroundColor: "#F1F9E3",marginLeft:"30px",marginRight:'30px',marginTop:'10px' }}className="py-10">
         <div  className="GridContainer mt-0 p-5 md:px-16 grid gap-10 md:grid-cols-3">
           {visibleProducts.map((file, index) => (
             <div
@@ -104,6 +104,7 @@ const ProductList = () => {
             backgroundColor: "#5D7031",
             marginRight: "55px",
             marginLeft: "55px",
+            borderRadius:'5px'
           }}
         >
           <div className="products-header">
@@ -117,7 +118,7 @@ const ProductList = () => {
             >
               Recommand for you
             </h2>
-            <div style={{ flex: "row", textAlign: "center", padding: "40px", paddingTop: "30px", paddingBottom: "40px" }}>
+            <div style={{ flex: "row", textAlign: "center", padding: "40px", paddingTop: "30px", paddingBottom: "40px" ,       }}>
               <h1 style={{ color: "#FFFFFF" }}>
                 When you switch to Jeveos product and there is no turning back because we prepare a luxurious range of natural soaps which are safe and effective
                 for your skin. Result-driven ayurvedic products that are clinically approved for all skin types and ages.

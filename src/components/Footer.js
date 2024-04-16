@@ -1,14 +1,15 @@
 import React from 'react';
+import { Colors } from './utils';
 
 function Footer() {
   return (
-    <div className='hidden md:w-full md:h-3/6 md:flex md:items-center md:justify-center bg-gray-800 mt-8 pt-7 md:mt-10 md:pt-10'>
+    <div               style={{ backgroundColor: "#F1F9E3" }} className='hidden md:w-full md:h-3/6 md:flex md:items-center md:justify-center  mt-8 pt-7 md:mt-10 md:pt-10'>
       <div className='md:w-2/3 w-full px-4 text-white flex flex-col'>
         <div className='w-full text-7xl font-bold'>
-          <h2 className='w-full md:w-2/3 text-4xl'>Find us.</h2>
+          <h2   style={{ color: "green" }}  className='w-full md:w-2/3 text-4xl'>Find us.</h2>
         </div>
         <div className='flex mt-8 flex-col md:flex-row md:justify-between'>
-          <p className='w-full md:w-2/3 text-white'>
+          <p style={{ color: "green" }}  className='w-full md:w-2/3 text-white'>
             Corporate Office Address: 194-0013 Tokyo, Machida, Haramachida, 6
             Chome−9−8, Aeta Machida, 4th Floor BUSO AGORA
           </p>
@@ -18,21 +19,21 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className='flex flex-col'>
+        <div style={{ color: "green" }} className='flex flex-col'>
           <div className='flex mt-24 mb-12 flex-row justify-between'>
             <div className=''>
-              <strong className='text-xl text-white'>SAPONIFY</strong>
+              <strong style={{ color: "green" }} className='text-xl text-white'>NABAL BAR</strong>
             </div>
-            <a className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               About
             </a>
-            <a className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a  style={{ color: "green" }} className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               Services
             </a>
-            <a className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               Why us
             </a>
-            <a className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               Contact
             </a>
             <div className='flex flex-row space-x-8 items-center justify-between'>

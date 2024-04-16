@@ -1,12 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // If you're using React Router for navigation
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; 
 import 'tailwindcss/tailwind.css';
-import Footer from '../../Footer';
+import './Navbar.css'
 function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 100) { 
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <nav style={{backgroundColor: "#F1F9E3" }} className='bg-white px-6 py-6 shadow'>
+    <nav  className={isSticky ? 'navbar sticky' : 'navbar'}>
       <div className='flex justify-between items-center'>
-        {/* Brand name */}
+     
         <div>
           <Link
             to='/product-list'

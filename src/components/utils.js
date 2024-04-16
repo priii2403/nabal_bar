@@ -158,3 +158,9 @@ export const products = [
 export const Colors ={
   mainTheme1:'#312B47'
 }
+export const carousel_image = [
+  "https://plus.unsplash.com/premium_photo-1661333471093-e4b69add3ad0?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://good-goodal.netlify.app/assets/2-9bb13673.jpg",
+  "https://images.unsplash.com/photo-1474625121024-7595bfbc57ac?q=80&w=2950&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+,"https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+]
