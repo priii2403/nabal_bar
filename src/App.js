@@ -11,19 +11,12 @@ function App() {
   return (
     <Router>
       <Navbar totalItems={5} />
-      
-    {/* <DashboardHeader /> */}
     <Routes>
-      <Route path="/product-list" element={< ProductList/>} />
+      <Route path="/product-list" exact element={< ProductList/>} />
       <Route path="/product/:id" element={<ProductDetails/>} />
       <Route path="/contact" element={<ContactUs/>} />
       <Route path="/about" element={<AboutUs/>} />
-     
-      {/* <Route path="user-details" element={<UserDetails />} />
-      <Route path="add-collection" element={<Collection />} />
-      <Route path="offer-List" element={<Offer_List/>} /> */} 
     </Routes>
-    {/* <Footer /> */}
   </Router>
   );
 }

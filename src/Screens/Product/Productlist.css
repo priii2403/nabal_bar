@@ -132,8 +132,14 @@
   .card-content {
     padding: 10px;
   }
-  .card-title {
+  .card-tit {
+    font-size: 18px;
     margin-top: 0;
+    font-family: Arial, sans-serif; /* Example font family */
+    font-style: italic; 
+color: '#fffff';
+font-weight: bold;
+margin-right: 10;
   }
   .card-text {
     margin-bottom: 5px;

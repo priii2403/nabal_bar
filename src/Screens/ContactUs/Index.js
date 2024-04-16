@@ -110,7 +110,7 @@ const Index = () => {
             required
           />
         </div>
-        <button  style={{backgroundColor:"#8a9557"}} type="submit">Submit</button>
+        <button  style={{backgroundColor:"#8a9557",padding:"10px",paddingLeft:"20px",paddingRight:"20px",color:'white'}} type="submit">Submit</button>
       </form>
     </div>
   );

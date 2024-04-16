@@ -4,7 +4,7 @@ import 'tailwindcss/tailwind.css';
 import Footer from '../../Footer';
 function Navbar() {
   return (
-    <nav className='bg-white px-6 py-3 shadow'>
+    <nav style={{backgroundColor: "#F1F9E3" }} className='bg-white px-6 py-3 shadow'>
       <div className='flex justify-between items-center'>
         {/* Brand name */}
         <div>
