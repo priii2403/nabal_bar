@@ -12,7 +12,8 @@ function App() {
     <Router>
       <Navbar totalItems={5} />
     <Routes>
-      <Route path="/product-list" exact element={< ProductList/>} />
+      <Route path="/" exact element={< ProductList/>} />
+      <Route path="/product-list"  element={< ProductList/>} />
       <Route path="/product/:id" element={<ProductDetails/>} />
       <Route path="/contact" element={<ContactUs/>} />
       <Route path="/about" element={<AboutUs/>} />
