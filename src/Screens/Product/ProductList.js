@@ -143,7 +143,7 @@ const ProductList = () => {
                     }}
                   ></div>
                   <div className="price-container">
-                    <span className="price">${300}</span>
+                    <span className="price">₹89</span>
                   </div>
                   <div
                     className="line"
