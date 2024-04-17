@@ -201,6 +201,7 @@ const ProductList = () => {
                 textAlign: "center",
                 color: "#5D7031",
                 paddingTop: "10px",
+                paddingBottom:'20px'
               }}
             >
             TESTIMONIALS
