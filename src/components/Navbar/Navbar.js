@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import "./Navbar.css";
@@ -6,6 +6,7 @@ import "./Navbar.css";
 function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,26 @@ function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className={isSticky ? "navbar sticky" : "navbar"}>
       <div className="flex justify-between items-center">
@@ -42,10 +63,18 @@ function Navbar() {
 
         {/* Navigation links */}
         <div className="hidden md:flex md:space-x-4">
-          <NavLink to="/product-list">Home</NavLink>
-          <NavLink to="/product-list">Products</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/product-list" onClick={closeMobileMenu}>
+            Home
+          </NavLink>
+          <NavLink to="/product-list" onClick={closeMobileMenu}>
+            Products
+          </NavLink>
+          <NavLink to="/contact" onClick={closeMobileMenu}>
+            Contact
+          </NavLink>
+          <NavLink to="/about" onClick={closeMobileMenu}>
+            About
+          </NavLink>
         </div>
 
         {/* Hamburger menu for mobile */}
@@ -71,11 +100,19 @@ function Navbar() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu md:hidden">
-          <NavLink to="/product-list">Home</NavLink>
-          <NavLink to="/product-list">Products</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/about">About</NavLink>
+        <div ref={mobileMenuRef} className="mobile-menu md:hidden">
+          <NavLink to="/product-list" onClick={closeMobileMenu}>
+            Home
+          </NavLink>
+          <NavLink to="/product-list" onClick={closeMobileMenu}>
+            Products
+          </NavLink>
+          <NavLink to="/contact" onClick={closeMobileMenu}>
+            Contact
+          </NavLink>
+          <NavLink to="/about" onClick={closeMobileMenu}>
+            About
+          </NavLink>
         </div>
       )}
     </nav>
@@ -83,10 +120,11 @@ function Navbar() {
 }
 
 // NavLink component to handle navigation links
-function NavLink({ to, children }) {
+function NavLink({ to, children, onClick }) {
   return (
     <Link
       to={to}
+      onClick={onClick}
       className="text-gray-700 hover:text-yellow-900 font-medium transition ease-out duration-300"
     >
       {children}
