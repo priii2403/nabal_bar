@@ -177,8 +177,6 @@ const ProductList = () => {
       <div
         style={{
           backgroundColor: "#5D7031",
-          // marginRight: "55px",
-          // marginLeft: "55px",
           borderRadius: "5px",
         }}
       >
@@ -243,7 +241,6 @@ const ProductList = () => {
                 class="card-tit"
                 style={{ color: "white", fontFamily: "Urbanist" }}
               >
-                {" "}
                 No Chemicals
               </h3>
 

@@ -14,62 +14,63 @@ const Index = () => {
             class="h-140 mx-auto w-full md:h-full md:rounded-md mt-10  max-w-lg"
             src={url}
             alt={name}
-            // style={{ height: '100', width: '100', maxWidth: '50%' }}
           />
         </div>
         <div className="flex flex-col w-full p-6 md:p-0 md:w-72">
           <h1 className="font-bold text-green-900 text-3xl mt-10">{name}</h1>
-  
-          <div className="text-gray-500 text-sm flex flex-row mt-5">
-  {product_price.map((item, index) => (
-    <div className="flex flex-col mr-4 border rounded border-gray-300" key={index}>
-      <div
-        style={{
-          backgroundColor: Colors.mainTheme2,
-          color: "#ffff",
-          paddingRight: "20px",
-          paddingLeft: "20px",
-          fontSize: "10px",
-        }}
-      >
-        {item.weight}
-      </div>
-      <div
-        className="line"
-        style={{
-          width: "100%",
-          height: "2px",
-          backgroundColor: "grey",
-        }}
-      ></div>
-      <div
-        style={{
-          paddingRight: "10px",
-          paddingLeft: "10px",
-          paddingTop: "5px",
-          paddingBottom: "5px",
-          display: "flex",
-          alignItems: "center", // Aligns content vertically center
-          justifyContent: "center", // Aligns content horizontally center
-        }}
-      >
-        {item.amount}
-      </div>
-    </div>
-  ))}
-</div>
 
-          {/* <span className="text-gray-500 mt-3">${300}</span> */}
+          <div className="text-gray-500 text-sm flex flex-row mt-5">
+            {product_price.map((item, index) => (
+              <div
+              style={{borderColor:Colors.mainTheme2}}
+                className="flex flex-col mr-4 border rounded"
+                key={index}
+              >
+                <div
+                  style={{
+                    backgroundColor: Colors.mainTheme2,
+                    color: "#ffff",
+                    paddingRight: "20px",
+                    paddingLeft: "20px",
+                    fontSize: "10px",
+                  }}
+                >
+                  {item.weight}
+                </div>
+                <div
+                  className="line"
+                  style={{
+                    width: "100%",
+                    height: "2px",
+                    backgroundColor: "grey",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    paddingRight: "10px",
+                    paddingLeft: "10px",
+                    paddingTop: "5px",
+                    paddingBottom: "5px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {item.amount}
+                </div>
+              </div>
+            ))}
+          </div>
+
           <hr className="my-3"></hr>
 
           <div className="text-gray-600 text-xl">ingredients :</div>
           <div className="text-gray-400 text-xl">{ingredients}</div>
           <div className="mt-2  0">
             <button
-              // onClick={() => onAddToCart(id)}
+
               style={{ backgroundColor: Colors.mainTheme2 }}
               className="flex uppercase mt-5 px-3 py-2 text-white text-sm font-medium rounded hover:bg-yellow-800 focus:outline-none focus:bg-yellow-800 disabled:opacity-30"
-              // disabled={item.is.sold_out}
             >
               {false ? <p>Sold Out</p> : <p>Add to Cart</p>}{" "}
               <svg

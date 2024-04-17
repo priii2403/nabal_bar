@@ -135,7 +135,7 @@ export const products = [
   },
   {
     name: "Tomato",
-    path: "Shop_list/Tomato/Tomato.jpeg",
+    path: "Shop_list/Tomato/Tomato.jpg",
     ingredients:
       "soap base, tomato pure, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel,  fragrance, colour",
   },
