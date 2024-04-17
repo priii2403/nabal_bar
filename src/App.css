@@ -24,6 +24,20 @@
   color: white;
 }
 
+@font-face {
+  font-family: 'Gotu-Regular';
+  src: url('../src/assets/carouselimages/Fonts/Gotu-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Urbanist-Italic';
+  src: url('../src/assets/carouselimages/Fonts/Urbanist-Italic-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('../src/assets/carouselimages/Fonts/Urbanist-VariableFont_wght.ttf');
+}
 .App-link {
   color: #61dafb;
 }

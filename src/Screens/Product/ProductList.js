@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-import { carousel_image, products } from "../../components/utils";
+import { carousel_image, products, reviews } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -11,7 +11,26 @@ const ProductList = () => {
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
   const initialProductsToShow = 9; // Initial number of products to display
+  const [scrollPosition, setScrollPosition] = useState(0);
 
+  const handleScroll = (direction) => {
+    const cardWidth = 250; // Adjust based on your card width
+    const container = document.getElementById('card-container');
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    let newPosition;
+
+    if (direction === 'left') {
+      newPosition = Math.max(scrollPosition - cardWidth * 3, 0);
+    } else {
+      newPosition = Math.min(scrollPosition + cardWidth * 3, maxScroll);
+    }
+
+    container.scrollTo({
+      left: newPosition,
+      behavior: 'smooth',
+    });
+    setScrollPosition(newPosition);
+  };
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -57,7 +76,7 @@ const ProductList = () => {
 
   return (
     <div className="px-0 py-0">
-      <Carousel showThumbs={false} infiniteLoop={true} interval={2000} dynamicHeight={true}>
+      <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true}interval={2000} dynamicHeight={true}>
         {carousel_image.map((file, index) => (
           <div key={index} style={{ height: "300px" }}>
             <img src={file} alt={file} style={{ maxWidth: "100%", maxHeight: "170%" }} />
@@ -80,7 +99,7 @@ const ProductList = () => {
             >
               <img src={file.url} alt={file.name} className="card-img-top" />
               <div className="card-body">
-                <h5 style={{ color: "green" }} className="card-title">
+                <h5 style={{ color: "green",fontFamily:'Urbanist' }} className="card-title">
                   {file.name}
                 </h5>
                 <div style={{ display: "flex", alignItems: "center" }}>
@@ -95,15 +114,17 @@ const ProductList = () => {
           ))}
         </div>
         {!showMore && (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <button onClick={toggleShowMore}>Show more</button>
+    <div style={{ textAlign: "center", marginTop: "20px"}}>
+      <button style={{backgroundColor:'#5D7031' , color :'#E9E1B0', fontWeight:"bold", padding:'10px'}} onClick={toggleShowMore}>Show more</button>
     </div>
   )}
+    
+      </div>
         <div
           style={{
             backgroundColor: "#5D7031",
-            marginRight: "55px",
-            marginLeft: "55px",
+            // marginRight: "55px",
+            // marginLeft: "55px",
             borderRadius:'5px'
           }}
         >
@@ -113,13 +134,13 @@ const ProductList = () => {
                 fontSize: "28px",
                 textAlign: "center",
                 color: "#EDECAF",
-                paddingTop: "10px",
+                paddingTop: "30px",
               }}
             >
               Recommand for you
             </h2>
-            <div style={{ flex: "row", textAlign: "center", padding: "40px", paddingTop: "30px", paddingBottom: "40px" ,       }}>
-              <h1 style={{ color: "#FFFFFF" }}>
+            <div style={{ flex: "row", textAlign: "center", padding: "40px", paddingTop: "30px", paddingBottom: "20px" ,       }}>
+              <h1 style={{ color: "#FFFFFF" ,fontFamily:'Urbanist-Italic' }}>
                 When you switch to Jeveos product and there is no turning back because we prepare a luxurious range of natural soaps which are safe and effective
                 for your skin. Result-driven ayurvedic products that are clinically approved for all skin types and ages.
               </h1>
@@ -134,7 +155,7 @@ const ProductList = () => {
                 class="card-image"
               />
               <div class="card-content">
-                <h3 class="card-tit" style={{color:"white"}} > Clinically Tested</h3>
+                <h3 class="card-tit" style={{color:"white",fontFamily:'Urbanist'}} > Clinically Tested</h3>
 
                 <a href="#" class="card-link">
                   Healthy + Handmade
@@ -148,7 +169,7 @@ const ProductList = () => {
                 class="card-image"
               />
               <div class="card-content">
-                <h3 class="card-tit" style={{color:"white"}} > No Chemicals</h3>
+                <h3 class="card-tit" style={{color:"white",fontFamily:'Urbanist'}} > No Chemicals</h3>
 
                 <a href="#" class="card-link">
                   Palm free with absolutley no toxins
@@ -171,8 +192,42 @@ const ProductList = () => {
             </div>
           </div>
         </div>
-    
+        <div>
+
+        <div className="products-header">
+            <h2
+              style={{
+                fontSize: "28px",
+                textAlign: "center",
+                color: "#5D7031",
+                paddingTop: "10px",
+              }}
+            >
+            TESTIMONIALS
+            </h2>
+   
+          </div>
+          <div className="scrollable-cards">
+      <div className="arrow left" onClick={() => handleScroll('left')}>
+        &lt;
       </div>
+      <div className="card-container-test" id="card-container">
+  {reviews.map((item, index) => (
+    <div key={index} className="card-test">
+      <div className="content">{item.content}</div>
+      <div className="author-container">
+        <span className="dash"> - </span>
+        <span>{item.author}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+      <div className="arrow right" onClick={() => handleScroll('right')}>
+        &gt;
+      </div>
+    </div>
+        </div>
     </div>
   );
 };

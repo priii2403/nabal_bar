@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Colors } from './utils';
 
 function Footer() {
+  const navigate = useNavigate();
+  const renderContact =()=>{
+    navigate("/contact");
+  }
+  const renderAccount =()=>{
+    navigate("/about");
+  }
   return (
     <div               style={{ backgroundColor: "#F1F9E3" }} className='hidden md:w-full md:h-3/6 md:flex md:items-center md:justify-center  mt-8 pt-7 md:mt-10 md:pt-10'>
       <div className='md:w-2/3 w-full px-4 text-white flex flex-col'>
@@ -13,8 +21,9 @@ function Footer() {
             Corporate Office Address: 194-0013 Tokyo, Machida, Haramachida, 6
             Chome−9−8, Aeta Machida, 4th Floor BUSO AGORA
           </p>
-          <div id='contact' className='w-44 pt-6 md:pt-0'>
-            <a className='bg-gray-600 text-white font-bold justify-center text-center rounded-lg shadow px-10 py-3 flex items-center'>
+          
+          <div onClick={()=>{renderContact()}} id='contact' className='w-44 pt-6 md:pt-0' >
+            <a  style={{backgroundColor:'#8A9556' }} className='bg-gray-600 text-white font-bold justify-center text-center rounded-lg shadow px-10 py-3 flex items-center'>
               Contact US
             </a>
           </div>
@@ -24,7 +33,7 @@ function Footer() {
             <div className=''>
               <strong style={{ color: "green" }} className='text-xl text-white'>NABAL BAR</strong>
             </div>
-            <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a onClick={()=>{renderAccount()}}  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               About
             </a>
             <a  style={{ color: "green" }} className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
@@ -33,7 +42,7 @@ function Footer() {
             <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               Why us
             </a>
-            <a  style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
+            <a onClick={()=>{renderContact()}} style={{ color: "green" }}className='hidden md:block cursor-pointer text-white hover:text-white uppercase'>
               Contact
             </a>
             <div className='flex flex-row space-x-8 items-center justify-between'>

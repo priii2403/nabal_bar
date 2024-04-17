@@ -38,7 +38,7 @@ const Index = () => {
 
   return (
     <div className="centered-form-container">
-      <div className="contact-header">
+      <div className="contact-header" style={{fontFamily:'Urbanist'}}>
         <h2>Contact Us</h2>
       </div>
       <form onSubmit={handleSubmit}>
@@ -96,7 +96,7 @@ const Index = () => {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button style={{backgroundColor:"#8A9556"}} type="submit">Submit</button>
       </form>
     </div>
   );
