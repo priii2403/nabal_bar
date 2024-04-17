@@ -156,7 +156,8 @@ export const products = [
   },
 ];
 export const Colors ={
-  mainTheme1:'#312B47'
+  mainTheme1:'#312B47',
+  mainTheme2:'#8a9557',
 }
 export const carousel_image = [
   "https://plus.unsplash.com/premium_photo-1661333471093-e4b69add3ad0?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -176,3 +177,8 @@ export  const reviews = [
   { id: 4, author: 'Emily Brown', content: 'Fantastic customer service!' },
   { id: 5, author: 'Michael Lee', content: 'Will definitely buy again.' },
 ];
+export const product_price =[
+  {weight:'100gm',amount:'₹89'},
+  {weight:'80gm',amount:'₹79'},
+  {weight:'60gm',amount:'₹69'},
+]

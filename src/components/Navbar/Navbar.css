@@ -11,4 +11,24 @@
     z-index: 1000;
     /* Add any additional styles for sticky navbar here */
   }
-  
+  /* Navbar.css */
+.mobile-menu {
+  position: absolute;
+  top: 60px; /* Adjust as needed */
+  right: 0; /* Align to the right */
+  width: 200px; /* Set the width of the menu */
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #5d7132;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  background-color: #f3f4f6;
+}

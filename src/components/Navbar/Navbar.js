@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import "./Navbar.css";
+
 function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,9 +22,14 @@ function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <nav className={isSticky ? "navbar sticky" : "navbar"}>
-      <div className="flex justify-between items-center ">
+      <div className="flex justify-between items-center">
         <div style={{ fontFamily: "Urbanist", color: "#5d7132" }}>
           <Link
             to="/product-list"
@@ -34,13 +41,43 @@ function Navbar() {
         </div>
 
         {/* Navigation links */}
-        <div className="flex space-x-4">
-          <NavLink  style={{ color: "#707070" }} to="/product-list">Home</NavLink>
-          <NavLink style={{ color: "#707070" }} to="/product-list">Products</NavLink>
-          <NavLink style={{ color: "#707070" }} to="/contact">Contact</NavLink>
-          <NavLink style={{ color: "#707070" }} to="/about">About</NavLink>
+        <div className="hidden md:flex md:space-x-4">
+          <NavLink to="/product-list">Home</NavLink>
+          <NavLink to="/product-list">Products</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/about">About</NavLink>
+        </div>
+
+        {/* Hamburger menu for mobile */}
+        <div className="md:hidden">
+          <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu md:hidden">
+          <NavLink to="/product-list">Home</NavLink>
+          <NavLink to="/product-list">Products</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/about">About</NavLink>
+        </div>
+      )}
     </nav>
   );
 }
