@@ -178,7 +178,7 @@ export  const reviews = [
   { id: 5, author: 'Michael Lee', content: 'Will definitely buy again.' },
 ];
 export const product_price =[
-  {weight:'100gm',amount:'₹89'},
-  {weight:'80gm',amount:'₹79'},
-  {weight:'60gm',amount:'₹69'},
+  {weight:'100gm',amount:'₹89.00'},
+  {weight:'80gm',amount:'₹79.00'},
+  {weight:'60gm',amount:'₹69.00'},
 ]
