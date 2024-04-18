@@ -1,18 +1,74 @@
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    overflow-x: hidden;
+.GridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust the minimum and maximum width */
+  gap: 30px; /* Adjust the gap value */
+  overflow-x: hidden;
+  background-color: #ffff;
+}
+.card {
+  border: 1px solid #F1F9E3;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background-color: #F1F9E3; 
+  justify-content: space-between; /* To push the button to the bottom */
+  align-items: center;
+  display: flex;
+  flex-direction: column; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
 
-  }
-  
-  .card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow-x: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-top-right-radius: 180px;
-    border-top-left-radius: 180px;
+.card:hover {
+  transform: scale(1.05); /* Zoom out effect on hover */
+}
+
+.card-details {
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.price {
+  /* font-weight: bold; */
+  font-style: normal;
+}
+.view-more-button {
+  background-color: #5d7132;
+  color: #ffffff;
+  border: none;
+  margin-top: 20px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  /* margin-top: auto; */
+  margin-bottom: 20px; /* Push the button to the bottom */
+}
+
+.view-more-button:hover {
+  background-color: #445b1d;
+}
+
+.card-img-top {
+  width: 80%;
+  height: 400px;
+  /* object-fit: cover;  */
+}
+  .products-header h2 {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: '#5D7132';
+    font-family: 'Gotu-Regular';
   }
   .R-card{
     border: 1px solid #ccc;
@@ -20,34 +76,18 @@
     overflow-x: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  .card-img-top {
-    width: 100%;
-    height: 300px; /* Set a fixed height for the images */
-    object-fit: cover; 
-  }
-  .products-header h2 {
-font-weight: bold;
-    font-size: 40px;
-    text-align: center;
-    margin-top: 20px;
-    background-color: '#5D7132';
-    font-family: 'Gotu-Regular';
-
-  }
   
   .card-body {
     /* padding: 20px; */
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 
   }
   .card-title {
-    font-size:25px;
-
-    /* margin-bottom: 20px; */
+    font-size:20px;
     font-weight: bold;
-    font-family: Arial, sans-serif; /* Example font family */
+    font-family:'Urbanist' ; /* Example font family */
     font-style: italic; /* Example font style */
     text-align: center; /* Center the text */
   }
@@ -132,12 +172,17 @@ font-weight: bold;
     100% { transform: rotate(360deg); }
   }
   .card-image {
-    /* width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ccc; */
-    width: 100%; /* Set image width to 100% of its container */
-    height: 200px; /* Set image height */
+    padding-left: 30px;
+    padding-top: 20px;
+  padding-right:20px;
+
+  }
+  
+  .card-image img {
+    width: calc(100% - 10px); /* Subtract the padding from the width */
+    height: 250px; /* Set a fixed height for the image */
     object-fit: cover;
+    border-radius: 10px; /* Maintain aspect ratio and crop image if needed */
   }
   .card-content {
     padding: 10px;
@@ -154,14 +199,7 @@ margin-right: 10;
   .card-text {
     margin-bottom: 5px;
   }
-  .price-container {
-    position: relative;
-    display: inline-block;
-    border: 2px solid #ccc;
-    border-radius: 50%; /* Make it a circle */
-    padding: 8px; /* Adjust padding as needed */
-    width: fit-content; /* Ensure the container's width fits its content */
-  }
+
   
   .price {
     display: inline-block;

@@ -15,7 +15,7 @@ const ProductList = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showMore, setShowMore] = useState(false);
-  const initialProductsToShow = 9; // Initial number of products to display
+  const initialProductsToShow = 12; // Initial number of products to display
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = (direction) => {
@@ -107,59 +107,32 @@ const ProductList = () => {
       </div>
       <div
         style={{
-          backgroundColor: "#F1F9E3",
+          // backgroundColor: "#F1F9E3",
           marginLeft: "30px",
           marginRight: "30px",
           marginTop: "10px",
         }}
         className="py-10"
       >
-        <div className="GridContainer mt-0 p-2 md:p-5 md:px-10 md:py-16 grid gap-5 md:gap-10 md:grid-cols-3"
->
+        <div className="GridContainer mt-0 p-2 md:p-5 md:px-10 md:py-5 grid gap-5 md:gap-5 md:grid-cols-3">
           {visibleProducts.map((file, index) => (
-            <div
-              key={index}
-              style={{ backgroundColor: "#ffff" }}
-              className="card"
-              onClick={() => {
-                handleSubmit(index, file);
-              }}
-            >
-              <img src={file.url} alt={file.name} className="card-img-top" />
-              <div className="card-body">
-                <h5
-                  style={{ color: "green", fontFamily: "Urbanist" }}
-                  className="card-title"
-                >
-                  {file.name}
-                </h5>
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  <div
-                    className="line"
-                    style={{
-                      width: "50%",
-                      height: "2px",
-                      backgroundColor: "grey",
-                    }}
-                  ></div>
-                  <div className="price-container">
-                    <span className="price">₹89</span>
-                  </div>
-                  <div
-                    className="line"
-                    style={{
-                      width: "50%",
-                      height: "2px",
-                      backgroundColor: "grey",
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
+        <div class="card">
+        <div class="card-image">
+          <img src={file.url} alt={file.name} />
+        </div>
+        <div class="card-details">
+          <h5 class="card-title">  {file.name}</h5>
+          <div class="price-container">
+            <span class="price">$50</span>
+          </div>
+            <button class="view-more-button">View More</button>
+        </div>
+      </div>
           ))}
         </div>
+
         {!showMore && (
-          <div style={{ textAlign: "center", marginTop: "20px" }}>
+          <div style={{ textAlign: "center", marginTop: "5px" }}>
             <button
               style={{
                 backgroundColor: "#5D7031",
@@ -282,7 +255,7 @@ const ProductList = () => {
             TESTIMONIALS
           </h2>
         </div>
-        <div style={{marginBottom:"150px"}} className="scrollable-cards">
+        <div style={{ marginBottom: "150px" }} className="scrollable-cards">
           <div className="arrow left" onClick={() => handleScroll("left")}>
             &lt;
           </div>
