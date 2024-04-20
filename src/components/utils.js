@@ -1,85 +1,85 @@
 export const products = [
   {
     name: "Aloevera",
-    path: "Shop_list/Aloevera/Aloevera.jpeg",
+    path: "Shop_list/Aloevera/Aloevera.png",
     ingredients:
       "soap base, aloevera, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E),  rose water, aloevera gel, fragrance",
   },
   {
     name: "Besan",
-    path: "Shop_list/Besan/Besan.jpeg",
+    path: "Shop_list/Besan/Besan (1).png",
     ingredients:
       " soap base, besan flour, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Camphor",
-    path: "Shop_list/Camphor/Camphor.jpeg",
+    path: "Shop_list/Camphor/Camphor.png",
     ingredients:
       "soap base, camphor powder, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel",
   },
   {
     name: "Carrot",
-    path: "Shop_list/Carrot/Carrot.jpg",
+    path: "Shop_list/Carrot/carrot.png",
     ingredients:
       "soap base, carrot puree, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Chandan",
-    path: "Shop_list/Chandan/Chandan.jpeg",
+    path: "Shop_list/Chandan/Chandan.png",
     ingredients:
       "soap base, chandan powder, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Charcoal",
-    path: "Shop_list/Charcoal/Charcoal.jpeg",
+    path: "Shop_list/Charcoal/Charcoal.png",
     ingredients:
       " soap base, coffee powder, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel ",
   },
   {
     name: "Coffee",
-    path: "Shop_list/Coffee/Coffee.jpeg",
+    path: "Shop_list/Coffee/Coffee.png",
     ingredients:
       " soap base, coffee powder, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel",
   },
   {
     name: "Cucumber",
-    path: "Shop_list/Cucumber/Cucumber.jpg",
+    path: "Shop_list/Cucumber/Cucumber.png",
     ingredients:
       "soap base, cucumber puree,rice flour, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance ",
   },
   {
     name: "Kesuda",
-    path: "Shop_list/Kesuda/Kesuda.jpeg",
+    path: "Shop_list/Kesuda/Kesuda.png",
     ingredients:
       " soap base, kesuda flowers, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Lavender Soap",
-    path: "Shop_list/Lavender/Lavender soap.jpeg",
+    path: "Shop_list/Lavender/Lavender.png",
     ingredients:
       " soap base, lavender essential oil, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Lemon",
-    path: "Shop_list/Lemon/Lemon copy.jpeg",
+    path: "Shop_list/Lemon/Lemon.png",
     ingredients:
       "soap base, lemon peel, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Multani Mitti",
-    path: "Shop_list/Multani mitti/Multani mitti.jpeg",
+    path: "Shop_list/Multani mitti/Mulatani mitti.png",
     ingredients:
       "soap base, multanimitti powder, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Neem",
-    path: "Shop_list/Neem/Neem.jpeg",
+    path: "Shop_list/Neem/Neem.png",
     ingredients:
       "soap base, natural neem, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Orange Peel",
-    path: "Shop_list/Orange-Peel/Orange peel.jpeg",
+    path: "Shop_list/Orange-Peel/Orange peel.png",
     ingredients:
       "soap base, orange peel, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
@@ -91,66 +91,66 @@ export const products = [
   },
   {
     name: "Papaya",
-    path: "Shop_list/Papaya/Papaya.jpg",
+    path: "Shop_list/Papaya/Papaya.png",
     ingredients:
       "soap base, papaya puree, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Potato Soap",
-    path: "Shop_list/Potato/Potato soap.jpeg",
+    path: "Shop_list/Potato/Potato.png",
     ingredients:
       "soap base,potato puree,rice flour, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Red Wine",
-    path: "Shop_list/Red wine/Red wine.jpeg",
+    path: "Shop_list/Red wine/Red wine (1).png",
     ingredients:
       " red wine soap base,  mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
-  { name: "Red Rose", path: "Shop_list/Red-Rose/rose.jpg" , ingredients:
+  { name: "Red Rose", path: "Shop_list/Red-Rose/Red rose.png" , ingredients:
   " soap base, red rose petals, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance ",},
   {
     name: "Rice",
-    path: "Shop_list/Rice/Rice.jpeg",
+    path: "Shop_list/Rice/Rice.png",
     ingredients:
       "soap base,rice flour, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Rose",
-    path: "Shop_list/Rose/rose.jpg",
+    path: "Shop_list/Rose/rose.png",
     ingredients:
       " soap base, rose petals, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance ",
   },
   {
     name: "Scrub",
-    path: "Shop_list/Scrub/Scrub.jpg",
+    path: "Shop_list/Scrub/Scrub.png",
     ingredients:
       "soap base, papaya scrub, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Three Layer (Multani Mitti, Coffee, Besan)",
-    path: "Shop_list/Three layer ( multani-mitti, coffee,besan)/Three layer ( multani mitti, coffee, besan).jpeg",
+    path: "Shop_list/Three layer ( multani-mitti, coffee,besan)/Three layer ( mulatani mitti, coffee, besan).png",
     ingredients:
       "soap base, besan flour, coffee powder, multani mitti, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance",
   },
   {
     name: "Tomato",
-    path: "Shop_list/Tomato/Tomato.jpg",
+    path: "Shop_list/Tomato/t2.png",
     ingredients:
       "soap base, tomato pure, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel,  fragrance, colour",
   },
-  { name: "Pink Rose", path: "Shop_list/pink-Rose/Rose.jpeg",
+  { name: "Pink Rose", path: "Shop_list/pink-Rose/Pink rose (1).png",
   ingredients:
   " soap base, pink rose petals, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance ", },
   {
     name: "Blue Berry",
-    path: "Shop_list/⁠Blue-Barry/Blue Barry.jpeg",
+    path: "Shop_list/⁠Blue-Barry/Blue Barry.png",
     ingredients:
       " soap base, blueberry fruit extract, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E), rose  water, aloevera gel, fragrance ",
   },
   {
     name: "Honey",
-    path: "Shop_list/Honey/Honey.jpeg",
+    path: "Shop_list/Honey/Honey.png",
     ingredients:
       " ingredients  : soap base, honey, mix oil (coconut oil, almond oil, jojoba oil, shea butter, cocoa butter, vitamin E ), rose  water, aloevera gel, fragrance",
   },
