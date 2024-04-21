@@ -6,6 +6,8 @@ import {
   Colors,
   products,
   reviews,
+  slides,
+  // slides,
 } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -13,11 +15,20 @@ import { Carousel } from "react-responsive-carousel";
 const ProductList = () => {
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
+  const [image, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const initialProductsToShow = 12; // Initial number of products to display
   const [scrollPosition, setScrollPosition] = useState(0);
-
+console.log("image",image);
+const quotePositions = [
+  { bottom: "200px", left: "35%", transform: "translateX(-50%)" },
+  { bottom: "130px", left: "40%", transform: "translateX(-50%)" },
+  { bottom: "180px", right: "0%", transform: "translateX(-50%)" },
+  { bottom: "200px", left: "50%", transform: "translateX(-50%)" },
+  { top: "410px", left: "40%", transform: "translateX(-50%)" },
+  // Add more positions as needed
+];
   const handleScroll = (direction) => {
     const cardWidth = 250; // Adjust based on your card width
     const container = document.getElementById("card-container");
@@ -42,6 +53,7 @@ const ProductList = () => {
       setLoading(true);
       try {
         const db = getStorage();
+        console.log("db",db);
         const promises = products.map(async (product) => {
           const storageRef = ref(db, product.path);
           const url = await getDownloadURL(storageRef);
@@ -49,6 +61,7 @@ const ProductList = () => {
             name: product.name,
             url: url,
             ingredients: product.ingredients,
+            benifit:product.benifit
           };
         });
         const productData = await Promise.all(promises);
@@ -60,7 +73,30 @@ const ProductList = () => {
         setLoading(false);
       }
     };
-    fetchData();
+    const fetchImages = async () => {
+      setLoading(true);
+      try {
+        const db = getStorage();
+        console.log("db",db);
+        const promises = slides.map(async (product) => {
+          const storageRef = ref(db, product.image);
+          const url = await getDownloadURL(storageRef);
+          return {
+            name: product.title,
+            url: url,
+            quote: product.quote,
+          };
+        });
+        const productData = await Promise.all(promises);
+        console.log("Product data:", productData);
+        setImages(productData);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    };
+    fetchData() && fetchImages();
   }, []);
 
   const handleSubmit = (index, file) => {
@@ -79,25 +115,40 @@ const ProductList = () => {
   const visibleProducts = showMore
     ? files
     : files.slice(0, initialProductsToShow);
-
+  
   return (
     <div className="px-0 py-0 ">
-<div style={{ position: "relative", maxHeight: "400px", overflow: "hidden" }}>
-  <img
-    src={carousel_image[6]} // Assuming carousel_image is an array of image URLs
-    alt={carousel_image[6]} // Assuming you want to use the image URL as alt text
-    style={{ width: "100%", height: "auto" }} // Make the image full width while maintaining aspect ratio
-  />
-  <p style={{ fontFamily:'Gotu-Regular' , fontSize: "20px", color: "white", position: "absolute", bottom: "280px", left: "50%", transform: "translateX(-50%)" }}>
-THE BEAUTY OF THE BEST
-  </p>
-  <p style={{ fontFamily:'Gotu-Regular' , fontSize: "40px", color: "white", position: "absolute", bottom: "210px", left: "50%", transform: "translateX(-50%)" }}>
-    Complete your elastic skin
-  </p>
-  <p style={{ fontFamily:'Gotu-Regular' , fontSize: "40px", color: "white", position: "absolute", bottom: "160px", left: "50%", transform: "translateX(-50%)" }}>
-    with the apricot collagen line.
-  </p>
-</div>
+  <Carousel
+        showThumbs={false}
+        infiniteLoop={true}
+        autoPlay={true}
+        interval={2000}
+        dynamicHeight={true}
+      >
+{image.map((file, index) => (
+  console.log(file.image),
+  <div key={index} style={{ height: "300px" }}>
+    <img
+      src={file.url}
+      alt={file.url}
+      style={{ maxWidth: "100%", maxHeight: "170%" }}
+    />
+    <p
+      key={index}
+      style={{
+        fontFamily: 'Gotu-Regular',
+        fontSize: "30px",
+        color: "black",
+        fontWeight:"bold",
+        position: "absolute",
+        ...quotePositions[index], // Apply position from the array
+      }}
+    >
+      {file.quote}
+    </p>
+  </div>
+))}
+      </Carousel>
 
 
     
@@ -121,36 +172,34 @@ THE BEAUTY OF THE BEST
           }}
           className="py-10"
         >
-          <div className="GridContainer mt-0 p-2 md:p-5 md:px-10 md:py-5 grid gap-5 md:gap-5 md:grid-cols-3">
-            {visibleProducts.map((file, index) => (
-              <div class="card" key={index}>
-                <div class="card-image">
-                  <img src={file.url} alt={file.name} />
-                </div>
-                <div class="card-details">
-                  <div className="card-row">
+      <div className="GridContainer mt-0 p-2 md:p-5 md:px-10 md:py-5 grid gap-5 md:gap-5 md:grid-cols-3">
+  {visibleProducts.map((file, index) => (
+    <div className="card" key={index}>
+      <div className="card-image">
+        <img src={file.url} alt={file.name} />
+      </div>
+      <div className="card-details" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+        <div className="card-row">
+          <h5 style={{ marginLeft: "15px" }} className="card-title">{file.name}</h5>
+          <h6 style={{ marginLeft: "5px", marginTop: '10px', fontSize: '10px' }}>(100gm)</h6>
+        </div>
+        <h5 className="card-detail">{file.benifit}</h5>
+        <div className="price-container">
+          <span className="price">₹89</span>
+        </div>
+        <button
+          onClick={() => {
+            handleSubmit(index, file);
+          }}
+          className="view-more-button"
+        >
+          View More
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
 
-
-                  <h5 style={{marginLeft:"15px"}}class="card-title"> {file.name} </h5>
-               
-                  <h6 style={{marginLeft:"5px",marginTop:'10px',fontSize:'10px'}}>(100gm)</h6>
-                  </div>
-                  <h5 class="card-detail"> Exfoliation | Affordability | Versatility</h5>
-                  <div class="price-container">
-                    <span class="price">₹89</span>
-                  </div>
-                  <button
-                    onClick={() => {
-                      handleSubmit(index, file);
-                    }}
-                    class="view-more-button"
-                  >
-                    View More
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
 
           {!showMore && (
             <div style={{ textAlign: "center", marginTop: "5px" }}>

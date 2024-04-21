@@ -1,0 +1,50 @@
+.carousel {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .slide {
+    width: 100%;
+    position: relative;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .quote-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .prev-next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .prev-btn {
+    left: 0;
+  }
+  
+  .next-btn {
+    right: 0;
+  }
+  
