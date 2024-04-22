@@ -21,14 +21,11 @@ const ProductList = () => {
   const initialProductsToShow = 12; // Initial number of products to display
   const [scrollPosition, setScrollPosition] = useState(0);
 console.log("image",image);
-const quotePositions = [
-  { bottom: "200px", left: "35%", transform: "translateX(-50%)" },
-  { bottom: "130px", left: "40%", transform: "translateX(-50%)" },
-  { bottom: "180px", right: "0%", transform: "translateX(-50%)" },
-  { bottom: "200px", left: "50%", transform: "translateX(-50%)" },
-  { top: "410px", left: "40%", transform: "translateX(-50%)" },
-  // Add more positions as needed
-];
+const quotePosition = {
+  bottom: '140px',
+  left: '150%',
+  transform: 'translateX(-40%)',
+};
   const handleScroll = (direction) => {
     const cardWidth = 250; // Adjust based on your card width
     const container = document.getElementById("card-container");
@@ -115,42 +112,47 @@ const quotePositions = [
   const visibleProducts = showMore
     ? files
     : files.slice(0, initialProductsToShow);
-  
+ 
   return (
-    <div className="px-0 py-0 ">
-  <Carousel
-        showThumbs={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={2000}
-        dynamicHeight={true}
-      >
-{image.map((file, index) => (
-  console.log(file.image),
-  <div key={index} style={{ height: "300px" }}>
-    <img
-      src={file.url}
-      alt={file.url}
-      style={{ maxWidth: "100%", maxHeight: "170%" }}
-    />
-    <p
-      key={index}
-      style={{
-        fontFamily: 'Gotu-Regular',
-        fontSize: "30px",
-        color: "black",
-        fontWeight:"bold",
-        position: "absolute",
-        ...quotePositions[index], // Apply position from the array
-      }}
+    <div className="px-0 py-0">
+     <Carousel
+      showThumbs={false}
+      infiniteLoop={true}
+      // autoPlay={true}
+      interval={2000}
+      dynamicHeight={true}
+      style={{ display: 'flex' }}
     >
-      {file.quote}
-    </p>
-  </div>
-))}
-      </Carousel>
-
-
+      {image.map((image, index) => (
+        <div key={index} style={{ width: '50%', position: 'relative' ,backgroundColor:'pink' }}>
+          <img
+            src={image.url}
+            alt={image.url}
+            style={{ maxWidth: '100%', maxHeight: '50%' }}
+          />
+          <div
+            key={index}
+            style={{
+              position: 'absolute',
+              ...quotePosition, 
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'Gotu-Regular',
+                fontSize: '30px',
+                color: 'white',
+                fontWeight: 'bold',
+                backgroundColor: 'green',
+                padding: '20px',
+              }}
+            >
+              {image.quote}
+            </p>
+          </div>
+        </div>
+      ))}
+    </Carousel>
     
     
       <div className="products-header">
@@ -158,7 +160,7 @@ const quotePositions = [
           Our Products
         </h2>
       </div>
-      {loading ? ( // Conditional rendering of loader
+      {loading ? ( 
         <div className="loader-container">
           <div className="loader"></div>
         </div>
