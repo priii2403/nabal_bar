@@ -30,8 +30,8 @@ function Footer() {
   </p>
   <button
     onClick={renderContact}
-    style={{backgroundColor:"#5d7132"}}
-    className="bg-gray-600 text-white font-bold px-6 py-3 rounded-lg shadow-md mb-4 md:mb-0 md:mr-4"
+    style={{backgroundColor:"#5d7132",marginTop:"20px"}}
+    className="bg-gray-600 text-white font-bold px-6 py-3 rounded-lg shadow-md mb-4 md:mb-0 md:mr-4 "
   >
     Contact Us
   </button>
