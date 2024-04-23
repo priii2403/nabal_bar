@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { fbdata } from "../../firebase";
 import "./contact.css";
 import { v4 as uuid } from "uuid";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const [formData, setFormData] = useState({
     email: "",
     mobile: "",

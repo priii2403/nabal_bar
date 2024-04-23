@@ -48,6 +48,14 @@ function Navbar() {
     };
   }, []);
 
+  const scrollToMiddle = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight / 6,
+      behavior: "smooth",
+    });
+    closeMobileMenu();
+  };
+
   return (
     <nav className={isSticky ? "navbar sticky" : "navbar"}>
       <div className="flex justify-between items-center">
@@ -56,6 +64,7 @@ function Navbar() {
             to="/product-list"
             className="text-gray-800 text-xl font-bold md:text-2xl hover:text-yellow-900"
             style={{ color: "#5d7132" }}
+            onClick={scrollToMiddle} // Scroll to middle when clicking NABAL-BAR
           >
             NABAL-BAR
           </Link>
@@ -66,7 +75,7 @@ function Navbar() {
           <NavLink to="/product-list" onClick={closeMobileMenu}>
             Home
           </NavLink>
-          <NavLink to="/product-list" onClick={closeMobileMenu}>
+          <NavLink to="/product-list" onClick={scrollToMiddle}>
             Products
           </NavLink>
           <NavLink to="/contact" onClick={closeMobileMenu}>
@@ -104,7 +113,7 @@ function Navbar() {
           <NavLink to="/product-list" onClick={closeMobileMenu}>
             Home
           </NavLink>
-          <NavLink to="/product-list" onClick={closeMobileMenu}>
+          <NavLink to="/product-list" onClick={scrollToMiddle}>
             Products
           </NavLink>
           <NavLink to="/contact" onClick={closeMobileMenu}>

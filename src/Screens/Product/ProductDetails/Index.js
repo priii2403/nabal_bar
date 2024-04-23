@@ -148,7 +148,6 @@ const Index = () => {
           </div>
 
           <hr className="my-3"></hr>
-
           <div className="text-gray-600 text-xl">ingredients :</div>
           <div className="text-gray-400 text-xl">{ingredients}</div>
           <div className="mt-2  0">

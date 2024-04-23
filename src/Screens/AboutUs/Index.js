@@ -1,8 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import TypingEffect from '../../components/TypingEffect';
 import './aboutUs.css'; 
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="about-us-container">
       <div className="image-container">
