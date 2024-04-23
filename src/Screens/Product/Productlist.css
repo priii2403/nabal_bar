@@ -57,35 +57,25 @@
 .price {
   font-weight: bold;
   padding-top: 3px;
-  /* font-style: normal; */
 }
 .view-more-button {
   background-color: #5d7132;
   color: #ffffff;
-  margin-left: 30px;
   border: none;
   margin-top: 20px;
-  padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 20px; /* Push the button to the bottom */
+  margin-bottom: 20px;
 }
 
 .view-more-button:hover {
   background-color: #445b1d;
 }
 .card-Rimage {
-  width: 100%; /* Set image width to 100% of its container */
-  height: 200px; /* Set image height */
+  width: 100%; 
+  height: 200px; 
   object-fit: cover;
 }
-
-  /* width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ccc; */
- 
-
-
 .card-img-top {
   width: 80%;
   height: 400px;

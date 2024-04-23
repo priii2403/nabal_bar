@@ -18,7 +18,7 @@ function Footer() {
       style={{ backgroundColor: Colors.mainTheme2, Colors: "#ffff" }}
       className="bg-green-200 py-8 md:py-5"
     >
-      <div className="container mx-auto px-4 md:flex md:items-center md:justify-between ">
+      <div className="container mx-auto px-4 py-10 md:flex md:items-center md:justify-between">
         <div className="text-center md:text-left mb-6 md:mb-0 ">
           <h2 style={{ color: "#ffff" ,fontWeight:'bold'}} className="text-4xl fo">
             Find us.
@@ -39,17 +39,7 @@ function Footer() {
 
         </div>
       </div>
-      <div className='flex space-x-4  px-20 py-5'>
-            <strong className='text-xl text-white'>NABAL BAR</strong>
-            <a onClick={renderAccount} className='cursor-pointer text-white hover:text-green-600 uppercase'>About</a>
-            <a className='cursor-pointer text-white hover:text-green-600 uppercase'>Services</a>
-            <a className='cursor-pointer text-white hover:text-green-600 uppercase'>Why us</a>
-            <a onClick={renderContact} className='cursor-pointer text-white hover:text-green-600 uppercase'>Contact</a>
-          </div>
-      <hr className="border-white  md:my-12" />
-      <p className="text-white text-center">
-        Created in React by Jerome Tolentino
-      </p>
+  
     </div>
   );
 }

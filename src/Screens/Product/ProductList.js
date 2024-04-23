@@ -118,7 +118,6 @@ const ProductList = () => {
       <Carousel
         showThumbs={false}
         infiniteLoop={true}
-        // autoPlay={true}
         interval={2000}
         dynamicHeight={true}
         style={{ display: "flex" }}
