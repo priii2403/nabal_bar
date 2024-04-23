@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fbdata, db } from "../../firebase";
+import { fbdata } from "../../firebase";
 import "./contact.css";
 import { v4 as uuid } from "uuid";
 import { doc, setDoc, getDoc } from "firebase/firestore";

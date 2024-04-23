@@ -1,6 +1,6 @@
 import React from 'react';
 import TypingEffect from '../../components/TypingEffect';
-import './aboutUs.css'; // Import your CSS file for styling
+import './aboutUs.css'; 
 
 const Index = () => {
   return (

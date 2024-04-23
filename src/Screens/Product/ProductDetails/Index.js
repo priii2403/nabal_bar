@@ -145,9 +145,6 @@ const Index = () => {
                 </div>
               ))
             )}
-            {/* {
-              name === 'Cucumber' &&b 
-            } */}
           </div>
 
           <hr className="my-3"></hr>
