@@ -22,9 +22,9 @@ const ProductList = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   console.log("image", image);
   const quotePosition = {
-    bottom: '140px',
-    left: '150%',
-    transform: 'translateX(-40%)',
+    bottom: "140px",
+    left: "150%",
+    transform: "translateX(-40%)",
   };
   const handleScroll = (direction) => {
     const cardWidth = 250; // Adjust based on your card width
@@ -58,7 +58,7 @@ const ProductList = () => {
             name: product.name,
             url: url,
             ingredients: product.ingredients,
-            benifit: product.benifit
+            benifit: product.benifit,
           };
         });
         const productData = await Promise.all(promises);
@@ -121,34 +121,56 @@ const ProductList = () => {
         // autoPlay={true}
         interval={2000}
         dynamicHeight={true}
-        style={{ display: 'flex' }}
+        style={{ display: "flex" }}
       >
         {image.map((image, index) => (
-          <div key={index} style={{ display: 'flex', width: '100%', height: '100%' }}>
-            <div style={{ width: '50%', position: 'relative', backgroundColor: 'pink' }}>
+          <div
+            key={index}
+            style={{ display: "flex", width: "100%", height: "100%" }}
+          >
+            <div
+              style={{
+                width: "50%",
+                position: "relative",
+              }}
+            >
               <img
                 src={image.url}
                 alt={image.url}
-                style={{ width: '100%', height: 'auto' }}
+                style={{ width: "100%", height: "80%" }}
               />
             </div>
-            <div style={{ width: '50%', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'green' }}>
-              <p style={{
-
-
-                color: 'white',
-                fontWeight: 'bold',
-                padding: '20px',
-                margin: '0', // Ensure there's no extra space around the text
-                textAlign: 'center' // Center align the text if needed
-              }}>
+            <div
+              style={{
+                width: "50%",
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: Colors.mainTheme2,
+              }}
+            >
+              <p
+                style={{
+                  color: "#E9E1B0",
+                  fontWeight: "bold",
+                  padding: "10px",
+                  margin: "20px",
+                  marginTop: "10px",
+                  textAlign: "center",
+                  fontSize: "2vw",
+                  borderWidth: 2,
+                  height: "25%",
+                  borderColor: "#E9E1B0",
+                  marginBottom: "100px",
+                }}
+              >
                 {image.quote}
               </p>
             </div>
           </div>
         ))}
       </Carousel>
-
 
       <div className="products-header">
         <h2 style={{ fontSize: "28px", textAlign: "center", color: "green" }}>
@@ -175,10 +197,33 @@ const ProductList = () => {
                 <div className="card-image">
                   <img src={file.url} alt={file.name} />
                 </div>
-                <div className="card-details" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <div
+                  className="card-details"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <div className="card-row">
-                    <h5 style={{ marginLeft: "15px" }} className="card-title">{file.name}</h5>
-                    <h6 style={{ marginLeft: "5px", marginTop: '10px', fontSize: '10px' }}>(100gm)</h6>
+                    <h5 style={{ marginLeft: "15px" }} className="card-title">
+                      {file.name}
+                    </h5>
+                    <h6
+                      style={{
+                        marginLeft: "5px",
+                        marginTop: "10px",
+                        fontSize: "10px",
+                      }}
+                    >
+                      {file.name === "Cucumber" &&
+                      file.name === "Three Layer (Multani Mitti, Coffee, Besan)"
+                        ? "(80gm)"
+                        : file.name === "Scrub"
+                        ? "(60gm)"
+                        : "(100gm)"}
+                    </h6>
                   </div>
                   <h5 className="card-detail">{file.benifit}</h5>
                   <div className="price-container">
@@ -197,13 +242,12 @@ const ProductList = () => {
             ))}
           </div>
 
-
           {!showMore && (
             <div style={{ textAlign: "center", marginTop: "5px" }}>
               <button
                 style={{
                   backgroundColor: "#5D7031",
-                  color: "#E9E1B0",
+                  color: "#fffff",
                   fontWeight: "bold",
                   padding: "10px",
                 }}
