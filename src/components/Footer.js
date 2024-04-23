@@ -9,9 +9,6 @@ function Footer() {
     navigate("/contact");
   };
 
-  const renderAccount = () => {
-    navigate("/about");
-  };
 
   return (
     <div

@@ -1,7 +1,7 @@
 .GridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust the minimum and maximum width */
-  gap: 30px; /* Adjust the gap value */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px; 
   overflow-x: hidden;
   background-color: #ffff;
 }
@@ -11,11 +11,11 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background-color: #ffff; 
-  justify-content: space-between; /* To push the button to the bottom */
+  justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: column; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 .card-row{
   display: flex;
@@ -28,7 +28,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .card:hover {
-  transform: scale(1.05); /* Zoom out effect on hover */
+  transform: scale(1.05);
 }
 
 .card-details {

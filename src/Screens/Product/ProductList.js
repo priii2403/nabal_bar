@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import {
-  carousel_image,
   Colors,
   products,
-  reviews,
   slides,
-  // slides,
 } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -18,39 +15,14 @@ const ProductList = () => {
   const [image, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
-  const initialProductsToShow = 12; // Initial number of products to display
-  const [scrollPosition, setScrollPosition] = useState(0);
-  console.log("image", image);
-  const quotePosition = {
-    bottom: "140px",
-    left: "150%",
-    transform: "translateX(-40%)",
-  };
-  const handleScroll = (direction) => {
-    const cardWidth = 250; // Adjust based on your card width
-    const container = document.getElementById("card-container");
-    const maxScroll = container.scrollWidth - container.clientWidth;
-    let newPosition;
+  const initialProductsToShow = 12; 
 
-    if (direction === "left") {
-      newPosition = Math.max(scrollPosition - cardWidth * 3, 0);
-    } else {
-      newPosition = Math.min(scrollPosition + cardWidth * 3, maxScroll);
-    }
-
-    container.scrollTo({
-      left: newPosition,
-      behavior: "smooth",
-    });
-    setScrollPosition(newPosition);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const db = getStorage();
-        console.log("db", db);
         const promises = products.map(async (product) => {
           const storageRef = ref(db, product.path);
           const url = await getDownloadURL(storageRef);
@@ -119,6 +91,7 @@ const ProductList = () => {
         showThumbs={false}
         infiniteLoop={true}
         interval={2000}
+        autoPlay={true}
         dynamicHeight={true}
         style={{ display: "flex" }}
       >
@@ -183,7 +156,6 @@ const ProductList = () => {
       ) : (
         <div
           style={{
-            // backgroundColor: "#F1F9E3",
             marginLeft: "30px",
             marginRight: "30px",
             marginTop: "10px",

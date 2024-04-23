@@ -6,9 +6,7 @@ const Index = () => {
   return (
     <div className="about-us-container">
       <div className="image-container">
-        {/* Image goes here */}
         <img src="https://images.unsplash.com/photo-1614806687007-2215a9db3b1c?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About Us" />
-        {/* Square box with quote */}
         <div className="quote-box" style={{ fontFamily: "Urbanist" }}>
       <TypingEffect text="'Nabel's story is simple and here we share our experience in developing this online store.'" />
     </div>

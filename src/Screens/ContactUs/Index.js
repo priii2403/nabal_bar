@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { fbdata, db } from "../../firebase";
 import "./contact.css";
 import { v4 as uuid } from "uuid";
-import { doc, setDoc, getFirestore, getDoc } from "firebase/firestore";
-import { push, ref, update } from "firebase/database";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +18,7 @@ const Index = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     const id = uuid();
     const res = await getDoc(doc(fbdata, "contactDetails", id));
     console.log("res", res);
