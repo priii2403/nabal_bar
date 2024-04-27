@@ -236,5 +236,6 @@ export const slides = [
     title: 'Slide 3',
     quote: 'Let the soothing suds cleanse not just your skin, but your soul too.',
   },
+
   // Add more slides as needed
 ];

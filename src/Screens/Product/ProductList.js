@@ -10,15 +10,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 
 const ProductList = () => {
-  
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
-  const [image, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showMore, setShowMore] = useState(false);
   const initialProductsToShow = 12; 
-
-
+  const [image, setImages] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);

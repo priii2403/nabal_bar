@@ -1,15 +1,45 @@
-import React,{useEffect} from 'react';
+import { getDownloadURL, getStorage, ref } from 'firebase/storage';
+import React,{useEffect,useState} from 'react';
 import TypingEffect from '../../components/TypingEffect';
+import { slides } from '../../components/utils';
 import './aboutUs.css'; 
 
 const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  const [image, setImages] = useState([]);
+  useEffect(() => {
+  
+    const fetchImages = async () => {
+    try {
+        const db = getStorage();
+       
+        const promises = slides.map(async (product) => {
+          const storageRef = ref(db, product.image);
+          const url = await getDownloadURL(storageRef);
+          return {
+            name: product.title,
+            url: url,
+            quote: product.quote,
+          };
+        });
+        const productData = await Promise.all(promises);
+        console.log("Product data:", productData);
+        setImages(productData);
+   
+      } catch (error) {
+        console.log(error);
+      
+      }
+    };
+  fetchImages();
+  }, []);
+  console.log(image[4]?.url);
   return (
     <div className="about-us-container">
       <div className="image-container">
-        <img src="https://images.unsplash.com/photo-1614806687007-2215a9db3b1c?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About Us" />
+        <img src={image[4]?.url} alt="About Us" />
         <div className="quote-box" style={{ fontFamily: "Urbanist" }}>
       <TypingEffect text="'Nabel's story is simple and here we share our experience in developing this online store.'" />
     </div>
