@@ -84,6 +84,9 @@ function Navbar() {
           <NavLink to="/about" onClick={closeMobileMenu}>
             About
           </NavLink>
+          <NavLink to="/admin" onClick={closeMobileMenu}>
+          Admin 
+          </NavLink>
         </div>
 
         {/* Hamburger menu for mobile */}
@@ -121,6 +124,9 @@ function Navbar() {
           </NavLink>
           <NavLink to="/about" onClick={closeMobileMenu}>
             About
+          </NavLink>
+          <NavLink to="/admin" onClick={closeMobileMenu}>
+          Admin Access
           </NavLink>
         </div>
       )}

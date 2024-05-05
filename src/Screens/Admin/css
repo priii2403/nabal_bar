@@ -1,0 +1,30 @@
+/* Assuming you have a CSS file for your component */
+.table-container {
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+.product-table {
+  width: 100%; /* Table takes full width of its container */
+  border-collapse: collapse; /* Collapse borders for better spacing */
+}
+
+.product-table th, .product-table td {
+  padding: 20px; /* Add padding to cells for spacing */
+  border: 1px solid #ddd; /* Add borders to cells for better separation */
+}
+
+.product-table th {
+  background-color: #f2f2f2; /* Light gray background for header cells */
+  font-weight: bold; /* Bold font for header cells */
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row colors for better readability */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-table {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+}

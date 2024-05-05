@@ -236,6 +236,11 @@ export const slides = [
     title: 'Slide 3',
     quote: 'Let the soothing suds cleanse not just your skin, but your soul too.',
   },
+  {
+    image: 'carousel/6.jpg',
+    title: 'Slide 3',
+    quote: 'Cleanliness is next to godliness.,Soap may not cure all things, but its a good start',
+  },
 
   // Add more slides as needed
 ];
