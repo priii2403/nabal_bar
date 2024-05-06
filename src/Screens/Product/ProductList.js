@@ -8,6 +8,8 @@ import {
 } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { collection, getDocs } from "firebase/firestore";
+import { fbdata } from "../../firebase";
 
 const ProductList = () => {
   const navigate = useNavigate();
@@ -16,28 +18,57 @@ const ProductList = () => {
   const [showMore, setShowMore] = useState(false);
   const initialProductsToShow = 12; 
   const [image, setImages] = useState([]);
+  console.log(JSON.stringify(files,null,2));
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
+    // const fetchData = async () => {
+    //   setLoading(true);
+    //   try {
+    //     const db = getStorage();
+    //     const promises = products.map(async (product) => {
+    //       const storageRef = ref(db, product.path);
+    //       const url = await getDownloadURL(storageRef);
+    //       return {
+    //         name: product.name,
+    //         url: url,
+    //         ingredients: product.ingredients,
+    //         benifit: product.benifit,
+    //       };
+    //     });
+    //     const productData = await Promise.all(promises);
+    //     console.log("Product data:", JSON.stringify(productData,null,2));
+    //     setFiles(productData);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     console.log(error);
+    //     setLoading(false);
+    //   }
+    // };
+    const fetchDataFromFirestore = async () => {
       try {
-        const db = getStorage();
-        const promises = products.map(async (product) => {
-          const storageRef = ref(db, product.path);
-          const url = await getDownloadURL(storageRef);
-          return {
-            name: product.name,
-            url: url,
-            ingredients: product.ingredients,
-            benifit: product.benifit,
-          };
+        const querySnapshot = await getDocs(collection(fbdata, "ProductDetails"));
+        const products = [];
+        querySnapshot.forEach((doc) => {
+          products.push({ id: doc.id, ...doc.data() });
         });
-        const productData = await Promise.all(promises);
-        console.log("Product data:", productData);
-        setFiles(productData);
-        setLoading(false);
+    
+  const productData = products.map(item => {
+  const product = item.Products;
+  return {
+    name: product.Name,
+    url: product.URL,
+    ingredients: product.Ingredients,
+    benefit: product.Benefits
+  };
+});
+setFiles(productData);
+
+console.log("Product data:", productData);
+  
+        
+  
+  
       } catch (error) {
-        console.log(error);
-        setLoading(false);
+        console.error("Error fetching data from Firestore:", error);
       }
     };
     const fetchImages = async () => {
@@ -63,7 +94,7 @@ const ProductList = () => {
         setLoading(false);
       }
     };
-    fetchData() && fetchImages();
+    fetchDataFromFirestore() && fetchImages();
   }, []);
 
   const handleSubmit = (index, file) => {

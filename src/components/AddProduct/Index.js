@@ -5,16 +5,13 @@ import { v4 as uuid } from "uuid";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 const AddProduct = ({ onClose, initialProduct }) => {
-  console.log("iniiii:",initialProduct);
   const [name, setName] = useState("");
-  const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [price, setPrice] = useState("");
-  const [Id, setId] = useState()
+  const [Id, setId] = useState();
   const [benefit, setBenefit] = useState("");
 
-  // Populate fields with initial product data if provided
   useEffect(() => {
     if (initialProduct) {
       setName(initialProduct?.Products?.Name || "");
@@ -22,15 +19,14 @@ const AddProduct = ({ onClose, initialProduct }) => {
       setIngredients(initialProduct?.Products?.Ingredients || "");
       setBenefit(initialProduct?.Products?.Benefits || "");
       setPrice(initialProduct?.Products?.Price || "");
-      setId(initialProduct?.id || '')
-    }
-    else{
+      setId(initialProduct?.id || "");
+    } else {
       setName("");
       setImageUrl("");
-      setIngredients( "");
+      setIngredients("");
       setBenefit("");
-      setPrice( "");
-      setId( '')
+      setPrice("");
+      setId("");
     }
   }, [initialProduct]);
 
@@ -49,7 +45,7 @@ const AddProduct = ({ onClose, initialProduct }) => {
   };
 
   const handleSubmit = async (event) => {
-    console.log('insidde',Id);
+    console.log("insidde", Id);
     event.preventDefault();
     try {
       // Prepare product data
@@ -58,11 +54,10 @@ const AddProduct = ({ onClose, initialProduct }) => {
         URL: imageUrl,
         Ingredients: ingredients,
         Benefits: benefit,
-        Price:price
+        Price: price,
       };
-  
-      if (initialProduct) {
 
+      if (initialProduct) {
         await updateDoc(doc(fbdata, "ProductDetails", initialProduct.id), {
           Products: data,
         });
@@ -76,13 +71,11 @@ const AddProduct = ({ onClose, initialProduct }) => {
           console.log("Product added successfully!");
         }
       }
-
-      // Reset form fields after submission
       setName("");
       setImageUrl("");
       setIngredients("");
       setBenefit("");
-      setPrice("")
+      setPrice("");
       onClose(); // Close the form after submission
     } catch (error) {
       console.error("Error submitting product:", error);
@@ -109,11 +102,14 @@ const AddProduct = ({ onClose, initialProduct }) => {
         <br />
 
         <label htmlFor="imageUrl">Image URL:</label>
-<br />
-<input type="text" id="imageUrl" value={imageUrl} disabled />
-<br />
-<img src={imageUrl} alt="Preview" style={{ width: '100px', height: '100px',padding:'10px' }} />
-
+        <br />
+        <input type="text" id="imageUrl" value={imageUrl} disabled />
+        <br />
+        <img
+          src={imageUrl}
+          alt="Preview"
+          style={{ width: "100px", height: "100px", padding: "10px" }}
+        />
 
         <label htmlFor="Price">Price:</label>
         <br />

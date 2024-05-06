@@ -9,8 +9,8 @@ const AddContact = ({ onClose, initialContact }) => {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
-const [Id, setId] = useState();
-console.log(Id,initialContact);
+  const [Id, setId] = useState();
+  console.log(Id, initialContact);
   // Populate fields with initial contact data if provided
   useEffect(() => {
     if (initialContact) {
@@ -19,15 +19,14 @@ console.log(Id,initialContact);
       setMobile(initialContact.User.mobile || "");
       setEmail(initialContact.User.email || "");
       setDescription(initialContact.User.description || "");
-      setId(initialContact.id || "")
-    }
-    else{
-      setName( "");
+      setId(initialContact.id || "");
+    } else {
+      setName("");
       setAddress("");
-      setMobile( "");
-      setEmail( "");
-      setDescription( "");
-      setId( "")
+      setMobile("");
+      setEmail("");
+      setDescription("");
+      setId("");
     }
   }, [initialContact]);
 
@@ -60,13 +59,12 @@ console.log(Id,initialContact);
         }
       }
 
-      // Reset form fields after submission
       setName("");
       setAddress("");
       setMobile("");
       setEmail("");
       setDescription("");
-      onClose(); // Close the form after submission
+      onClose();
     } catch (error) {
       console.error("Error submitting contact:", error);
     }
