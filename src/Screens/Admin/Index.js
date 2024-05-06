@@ -1,25 +1,86 @@
 import React, { useState, useEffect } from "react";
 import AddProduct from "../../components/AddProduct/Index";
 import Modal from "../../components/Modal/Modal";
-import { FaEdit, FaTrash } from "react-icons/fa"; 
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { fbdata } from "../../firebase"; // Assuming you have initialized your Firestore instance as `fbdata`
-import './css';
+import "./css";
+import { Table, Space, Tag,Button,Drawer } from "antd";
+import { EditOutlined, DeleteFilled, MenuOutlined, CloseOutlined  } from "@ant-design/icons";
+import ProductList from "./ProductList";
+import ContactList from "./ContactList";
 const Index = () => {
+  const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const showDrawer = () => {
+    setDrawerVisible(true);
+  };
+
+  const onCloseDrawer = () => {
+    setDrawerVisible(false);
+  };
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: ["Products", "Name"],
+      key: "name",
+    },
+    {
+      title: "Ingredients",
+      dataIndex: ["Products", "Ingredients"],
+      key: "ingredients",
+    },
+    {
+      title: "Benefits",
+      dataIndex: ["Products", "Benefits"],
+      key: "benefits",
+    },
+    {
+      title: 'URL',
+      dataIndex: ['Products', 'URL'],
+      key: 'url',
+      render: (url) => (
+        <div>
+          <img src={url} alt="Product" style={{ width: '100px' }} />
+         
+        </div>
+      ),
+    },
+    {
+      title: "Price",
+      dataIndex: ["Products", "Price"],
+      key: "Price",
+      
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <EditOutlined onClick={() => handleUpdateProduct(record)} />
+
+          <DeleteFilled
+            onClick={() => handleDeleteProduct(record.id)}
+            style={{ color: "red", marginLeft: 12 }}
+          />
+        </Space>
+      ),
+    },
+  ];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productList, setProductList] = useState([]);
-const [EditMode, setEditMode] = useState(false)
-const [UpdateData, setUpdateData] = useState()
+  const [EditMode, setEditMode] = useState(false);
+  const [UpdateData, setUpdateData] = useState();
   useEffect(() => {
     fetchDataFromFirestore();
-  }, []); // Fetch data on component mount
+  }, []);
 
   const fetchDataFromFirestore = async () => {
     try {
       const querySnapshot = await getDocs(collection(fbdata, "ProductDetails"));
       const products = [];
       querySnapshot.forEach((doc) => {
-        // Assuming each document contains product details
         products.push({ id: doc.id, ...doc.data() });
       });
       setProductList(products);
@@ -27,23 +88,30 @@ const [UpdateData, setUpdateData] = useState()
       console.error("Error fetching data from Firestore:", error);
     }
   };
-const handleUpdateProduct=(data)=>{
-    setEditMode(true)
-        setUpdateData(data)
-        handleAddProduct()
-   
-}
-console.log(UpdateData);
-const handleDeleteProduct = async (id) => {
+  const handleUpdateProduct = (data) => {
+    console.log(data);
+    setEditMode(true);
+    setUpdateData(data);
+    handleAddProduct();
+  };
+  console.log(UpdateData);
+  const handleDeleteProduct = async (id) => {
     // Delete product from Firestore
     try {
       await deleteDoc(doc(fbdata, "ProductDetails", id));
       // Remove the deleted product from the local product list
-      setProductList(productList.filter(product => product.id !== id));
+      setProductList(productList.filter((product) => product.id !== id));
       console.log("Product deleted successfully:", id);
     } catch (error) {
       console.error("Error deleting product:", error);
     }
+  };
+  const [selectedMenu, setSelectedMenu] = useState("products");
+
+
+  const handleMenuClick = (menu) => {
+    setSelectedMenu(menu);
+    onCloseDrawer(); // Close the drawer after clicking a menu item
   };
   const handleAddProduct = () => {
     setIsModalOpen(true);
@@ -55,48 +123,58 @@ const handleDeleteProduct = async (id) => {
 
   return (
     <div>
-      <h1>Screen with Add Product Button</h1>
+     <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '16px',paddingRight:"20px" }}>
       <button onClick={handleAddProduct}>Add Product</button>
-{
-    EditMode  ?   <Modal isOpen={isModalOpen}  onClose={handleCloseModal}>
-    <AddProduct onClose={handleCloseModal} initialProduct={UpdateData.Products} />
-  </Modal> :   <Modal isOpen={isModalOpen} onClose={handleCloseModal} > 
-        <AddProduct onClose={handleCloseModal}  />
-      </Modal>
-}
-     
-
-      <div className="table-container">
-        <table className="product-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>URL</th>
-              <th>Ingredients</th>
-              <th>Benefits</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productList.map((product) => (
-              <tr key={product.Products.id}>
-                <td>{product.Products.id}</td>
-                <td>{product.Products.Name}</td>
-                <td>{product.Products.URL}</td>
-                <td>{product.Products.Ingredients}</td>
-                <td>{product.Products.Benefits}</td>
-                <td style={{ display: "flex", flexDirection: "row" }}>
-  {/* Update and delete options */}
-  <FaEdit onClick={() => handleUpdateProduct(product)} />
-  <FaTrash onClick={() => handleDeleteProduct(product.id)} />
-</td>
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <MenuOutlined  onClick={showDrawer} style={{ marginLeft: 16 }}/>
+    
       </div>
+      <Drawer
+        title="Lists"
+        placement="right"
+        closable={false}
+        onClose={onCloseDrawer}
+        visible={drawerVisible}
+        
+        >
+ <div>
+  <h2
+    style={{ padding: "30px", backgroundColor: "pink", borderRadius: "5px" }}
+    onClick={() => handleMenuClick("products")}
+    onMouseEnter={(e) => (e.target.style.backgroundColor = "#8A9556")}
+    onMouseLeave={(e) => (e.target.style.backgroundColor = "white")}
+  >
+    Product List
+  </h2>
+  <h2
+    style={{ padding: "30px", backgroundColor: "pink", borderRadius: "5px" }}
+    onClick={() => handleMenuClick("contacts")}
+    onMouseEnter={(e) => (e.target.style.backgroundColor = "#8A9556")}
+    onMouseLeave={(e) => (e.target.style.backgroundColor = "white")}
+  >
+    Contact List
+  </h2>
+</div>
+        
+      </Drawer>
+   
+ 
+      {selectedMenu === "products" && <ProductList columns={columns} productList={productList} />}
+
+      {selectedMenu === "contacts" && <ContactList />}
+      {EditMode ? (
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <AddProduct
+            onClose={handleCloseModal}
+            initialProduct={UpdateData}
+          />
+        </Modal>
+      ) : (
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+          <AddProduct onClose={handleCloseModal} />
+        </Modal>
+      )}
+
+  
     </div>
   );
 };

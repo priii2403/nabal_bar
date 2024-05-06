@@ -9,15 +9,19 @@ const AddProduct = ({ onClose, initialProduct }) => {
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [ingredients, setIngredients] = useState("");
+  const [price, setPrice] = useState("");
+  const [Id, setId] = useState()
   const [benefit, setBenefit] = useState("");
-console.log(initialProduct);
+console.log("iii",initialProduct?.id);
   // Populate fields with initial product data if provided
   useEffect(() => {
     if (initialProduct) {
-      setName(initialProduct.Name || "");
-      setImageUrl(initialProduct.URL || "");
-      setIngredients(initialProduct.Ingredients || "");
-      setBenefit(initialProduct.Benefits || "");
+      setName(initialProduct.Products.Name || "");
+      setImageUrl(initialProduct.Products.URL || "");
+      setIngredients(initialProduct.Products.Ingredients || "");
+      setBenefit(initialProduct.Products.Benefits || "");
+      setPrice(initialProduct.Products.Price || "");
+      setId(initialProduct?.id || '')
     }
   }, [initialProduct]);
 
@@ -36,6 +40,7 @@ console.log(initialProduct);
   };
 
   const handleSubmit = async (event) => {
+    console.log('insidde',Id);
     event.preventDefault();
     try {
       // Prepare product data
@@ -44,8 +49,8 @@ console.log(initialProduct);
         URL: imageUrl,
         Ingredients: ingredients,
         Benefits: benefit,
+        Price:price
       };
-
       // Check if it's an edit or add operation
       if (initialProduct) {
         // Update existing product
@@ -68,6 +73,7 @@ console.log(initialProduct);
       setImageUrl("");
       setIngredients("");
       setBenefit("");
+      setPrice("")
       onClose(); // Close the form after submission
     } catch (error) {
       console.error("Error submitting product:", error);
@@ -96,6 +102,18 @@ console.log(initialProduct);
         <label htmlFor="imageUrl">Image URL:</label>
         <br />
         <input type="text" id="imageUrl" value={imageUrl} disabled />
+        <br />
+
+
+
+        <label htmlFor="Price">Price:</label>
+        <br />
+        <input
+          type="number"
+          id="price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
         <br />
 
         <label htmlFor="ingredients">Ingredients:</label>
