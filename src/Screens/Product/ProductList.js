@@ -20,29 +20,7 @@ const ProductList = () => {
   const [image, setImages] = useState([]);
   console.log(JSON.stringify(files,null,2));
   useEffect(() => {
-    // const fetchData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     const db = getStorage();
-    //     const promises = products.map(async (product) => {
-    //       const storageRef = ref(db, product.path);
-    //       const url = await getDownloadURL(storageRef);
-    //       return {
-    //         name: product.name,
-    //         url: url,
-    //         ingredients: product.ingredients,
-    //         benifit: product.benifit,
-    //       };
-    //     });
-    //     const productData = await Promise.all(promises);
-    //     console.log("Product data:", JSON.stringify(productData,null,2));
-    //     setFiles(productData);
-    //     setLoading(false);
-    //   } catch (error) {
-    //     console.log(error);
-    //     setLoading(false);
-    //   }
-    // };
+    
     const fetchDataFromFirestore = async () => {
       try {
         const querySnapshot = await getDocs(collection(fbdata, "ProductDetails"));
