@@ -12,15 +12,15 @@ const AddProduct = ({ onClose, initialProduct }) => {
   const [price, setPrice] = useState("");
   const [Id, setId] = useState()
   const [benefit, setBenefit] = useState("");
-console.log("iii",initialProduct?.id);
+
   // Populate fields with initial product data if provided
   useEffect(() => {
     if (initialProduct) {
-      setName(initialProduct.Products.Name || "");
-      setImageUrl(initialProduct.Products.URL || "");
-      setIngredients(initialProduct.Products.Ingredients || "");
-      setBenefit(initialProduct.Products.Benefits || "");
-      setPrice(initialProduct.Products.Price || "");
+      setName(initialProduct?.Products?.Name || "");
+      setImageUrl(initialProduct?.Products?.URL || "");
+      setIngredients(initialProduct?.Products?.Ingredients || "");
+      setBenefit(initialProduct?.Products?.Benefits || "");
+      setPrice(initialProduct?.Products?.Price || "");
       setId(initialProduct?.id || '')
     }
   }, [initialProduct]);
@@ -51,9 +51,9 @@ console.log("iii",initialProduct?.id);
         Benefits: benefit,
         Price:price
       };
-      // Check if it's an edit or add operation
+  
       if (initialProduct) {
-        // Update existing product
+
         await updateDoc(doc(fbdata, "ProductDetails", initialProduct.id), {
           Products: data,
         });

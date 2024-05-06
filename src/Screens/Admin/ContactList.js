@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Table } from 'antd';
 
-function ContactList() {
+function ContactList({ columns, productList }) {
   return (
-    <div>ContactList</div>
-  )
+    <Table style={{ padding: '20px' }} columns={columns} dataSource={productList} />
+  );
 }
 
-export default ContactList
+export default ContactList;
