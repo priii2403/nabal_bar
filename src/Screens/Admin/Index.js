@@ -179,7 +179,7 @@ const Index = () => {
   };
   const handleAddProduct = () => {
     console.log("heree");
-    setUpdateData('')
+    setUpdateData()
     setEditMode(false)
     setIsModalOpen(true);
   };

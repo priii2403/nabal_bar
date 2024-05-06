@@ -21,6 +21,14 @@ console.log(Id,initialContact);
       setDescription(initialContact.User.description || "");
       setId(initialContact.id || "")
     }
+    else{
+      setName( "");
+      setAddress("");
+      setMobile( "");
+      setEmail( "");
+      setDescription( "");
+      setId( "")
+    }
   }, [initialContact]);
 
   const handleSubmit = async (event) => {

@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 const AddProduct = ({ onClose, initialProduct }) => {
+  console.log("iniiii:",initialProduct);
   const [name, setName] = useState("");
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
@@ -22,6 +23,14 @@ const AddProduct = ({ onClose, initialProduct }) => {
       setBenefit(initialProduct?.Products?.Benefits || "");
       setPrice(initialProduct?.Products?.Price || "");
       setId(initialProduct?.id || '')
+    }
+    else{
+      setName("");
+      setImageUrl("");
+      setIngredients( "");
+      setBenefit("");
+      setPrice( "");
+      setId( '')
     }
   }, [initialProduct]);
 
@@ -100,10 +109,10 @@ const AddProduct = ({ onClose, initialProduct }) => {
         <br />
 
         <label htmlFor="imageUrl">Image URL:</label>
-        <br />
-        <input type="text" id="imageUrl" value={imageUrl} disabled />
-        <br />
-
+<br />
+<input type="text" id="imageUrl" value={imageUrl} disabled />
+<br />
+<img src={imageUrl} alt="Preview" style={{ width: '100px', height: '100px',padding:'10px' }} />
 
 
         <label htmlFor="Price">Price:</label>
