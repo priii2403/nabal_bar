@@ -1,30 +1,29 @@
 .about-us-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-bottom: 20px;
 }
 
 .image-container {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
 }
 
 .image-container img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
+  /* width: 100%; */
+  /* max-width: 400px; */
+  width: 550px;
+  height: 430px;
 }
 
 .quote-box {
-  background-color: #f1f1f1;
+  background-color: transparent;
   padding: 20px;
   text-align: center;
   position: absolute;
-  top: 100px; 
-  left: 180px; 
-  width: 200px; 
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
 }
 
 .content-container {
@@ -40,20 +39,19 @@
 .about-text {
   margin-top: 20px;
 }
+
 .about-padding {
   margin-top: 7px;
 }
+
 @media screen and (min-width: 768px) {
   .about-us-container {
-    flex-direction: row;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
   }
 
   .image-container {
-    width: 50%;
-  }
-
-  .content-container {
-    width: 50%;
+    justify-self: end;
+    margin-right: 20px;
   }
 }

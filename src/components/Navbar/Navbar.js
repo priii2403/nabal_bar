@@ -57,6 +57,10 @@ function Navbar() {
   };
 
   return (
+    <>
+       <div className="p-4 w-[100%] text-center bg-[#5d7132] text-white text-lg">
+        100% Nature Handmade Soap Online
+      </div>
     <nav className={isSticky ? "navbar sticky" : "navbar"}>
       <div className="flex justify-between items-center">
         <div style={{ fontFamily: "Urbanist", color: "#5d7132" }}>
@@ -131,6 +135,7 @@ function Navbar() {
         </div>
       )}
     </nav>
+    </>
   );
 }
 
