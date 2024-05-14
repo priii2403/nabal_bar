@@ -45,7 +45,6 @@ const AddProduct = ({ onClose, initialProduct }) => {
   };
 
   const handleSubmit = async (event) => {
-    console.log("insidde", Id);
     event.preventDefault();
     try {
       // Prepare product data
@@ -61,14 +60,12 @@ const AddProduct = ({ onClose, initialProduct }) => {
         await updateDoc(doc(fbdata, "ProductDetails", initialProduct.id), {
           Products: data,
         });
-        console.log("Product updated successfully!");
       } else {
         // Add new product
         const p_id = uuid();
         const res = await getDoc(doc(fbdata, "ProductDetails", p_id));
         if (!res.exists()) {
           await setDoc(doc(fbdata, "ProductDetails", p_id), { Products: data });
-          console.log("Product added successfully!");
         }
       }
       setName("");

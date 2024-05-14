@@ -2,11 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import "./Navbar.css";
+import LoginModal from "../../Screens/Login/Login";
 
 function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,83 +61,84 @@ function Navbar() {
 
   return (
     <>
-       <div className="p-4 w-[100%] text-center bg-[#5d7132] text-white text-lg">
+      <div className="p-4 w-[100%] text-center bg-[#5d7132] text-white text-lg">
         100% Nature Handmade Soap Online
       </div>
-    <nav className={isSticky ? "navbar sticky" : "navbar"}>
-      <div className="flex justify-between items-center">
-        <div style={{ fontFamily: "Urbanist", color: "#5d7132" }}>
-          <Link
-            to="/product-list"
-            className="text-gray-800 text-xl font-bold md:text-2xl hover:text-yellow-900"
-            style={{ color: "#5d7132" }}
-            onClick={scrollToMiddle} // Scroll to middle when clicking NABAL-BAR
-          >
-            NABAL-BAR
-          </Link>
-        </div>
-
-        {/* Navigation links */}
-        <div className="hidden md:flex md:space-x-4">
-          <NavLink to="/product-list" onClick={closeMobileMenu}>
-            Home
-          </NavLink>
-          <NavLink to="/product-list" onClick={scrollToMiddle}>
-            Products
-          </NavLink>
-          <NavLink to="/contact" onClick={closeMobileMenu}>
-            Contact
-          </NavLink>
-          <NavLink to="/about" onClick={closeMobileMenu}>
-            About
-          </NavLink>
-          <NavLink to="/admin" onClick={closeMobileMenu}>
-          Admin 
-          </NavLink>
-        </div>
-
-        {/* Hamburger menu for mobile */}
-        <div className="md:hidden">
-          <button className="mobile-menu-button" onClick={toggleMobileMenu}>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+      <nav className={isSticky ? "navbar sticky" : "navbar"}>
+        <div className="flex justify-between items-center">
+          <div style={{ fontFamily: "Urbanist", color: "#5d7132" }}>
+            <Link
+              to="/product-list"
+              className="text-gray-800 text-xl font-bold md:text-2xl hover:text-yellow-900"
+              style={{ color: "#5d7132" }}
+              onClick={scrollToMiddle} // Scroll to middle when clicking NABAL-BAR
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+              NABAL-BAR
+            </Link>
+          </div>
 
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div ref={mobileMenuRef} className="mobile-menu md:hidden">
-          <NavLink to="/product-list" onClick={closeMobileMenu}>
-            Home
-          </NavLink>
-          <NavLink to="/product-list" onClick={scrollToMiddle}>
-            Products
-          </NavLink>
-          <NavLink to="/contact" onClick={closeMobileMenu}>
-            Contact
-          </NavLink>
-          <NavLink to="/about" onClick={closeMobileMenu}>
-            About
-          </NavLink>
-          <NavLink to="/admin" onClick={closeMobileMenu}>
-          Admin Access
-          </NavLink>
+          {/* Navigation links */}
+          <div className="hidden md:flex md:space-x-4">
+            <NavLink to="/product-list" onClick={closeMobileMenu}>
+              Home
+            </NavLink>
+            <NavLink to="/product-list" onClick={scrollToMiddle}>
+              Products
+            </NavLink>
+            <NavLink to="/contact" onClick={closeMobileMenu}>
+              Contact
+            </NavLink>
+            <NavLink to="/about" onClick={closeMobileMenu}>
+              About
+            </NavLink>
+            <NavLink onClick={() => { setVisible(true) }}>
+              Login
+            </NavLink>
+          </div>
+
+          {/* Hamburger menu for mobile */}
+          <div className="md:hidden">
+            <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div ref={mobileMenuRef} className="mobile-menu md:hidden">
+            <NavLink to="/product-list" onClick={closeMobileMenu}>
+              Home
+            </NavLink>
+            <NavLink to="/product-list" onClick={scrollToMiddle}>
+              Products
+            </NavLink>
+            <NavLink to="/contact" onClick={closeMobileMenu}>
+              Contact
+            </NavLink>
+            <NavLink to="/about" onClick={closeMobileMenu}>
+              About
+            </NavLink>
+            <NavLink to="/admin" onClick={closeMobileMenu}>
+              Admin Access
+            </NavLink>
+          </div>
+        )}
+      </nav>
+      {visible && <LoginModal visible={visible} setVisible={setVisible} />}
     </>
   );
 }

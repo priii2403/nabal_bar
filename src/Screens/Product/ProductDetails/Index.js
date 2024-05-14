@@ -2,7 +2,6 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "../Productlist.css";
 import { Colors, product_price } from "../../../components/utils";
-
 const Index = () => {
   const phoneNumber = "919724817980";
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
@@ -12,58 +11,170 @@ const Index = () => {
   const handleAddToCartClick = () => {
     window.location.href = whatsappUrl;
   };
-
   return (
-    <main className="container">
-      <div className="flex flex-col md:flex-row justify-center gap-x-12">
-        <div className="relative">
-          <img className="product-image" src={url} alt={name} />
+    <main className="mt-0 md:mt-20 w-screen h-screen md:h-full md:mb-60   ">
+      <div className="flex flex-col md:flex-row justify-center gap-14 ">
+        <div className="flex flex-col relative items-center">
+          <img
+            class=" md:rounded-md mt-10  max-w-lg"
+            src={url}
+            alt={name}
+            width={300}
+            height={300}
+          />
         </div>
-        <div className="details-container">
-          <h1 className="product-title">{name}</h1>
-          <div className="prices-container">
-            {name === "Cucumber" || name === "Three Layer (Multani Mitti, Coffee, Besan)" ? (
-              <PriceCard weight="80gm" amount="₹79.00" />
+        <div className="flex flex-col w-full p-6 md:p-0 md:w-72">
+          <h1 className="font-bold text-green-900 text-3xl mt-10">{name}</h1>
+
+          <div className="text-gray-500 text-sm flex flex-row mt-5">
+            {name === "Cucumber" ||
+              name === "Three Layer (Multani Mitti, Coffee, Besan)" ? (
+              <div
+                style={{ borderColor: Colors.mainTheme2 }}
+                className="flex flex-col mr-4 border rounded"
+              >
+                <div
+                  style={{
+                    backgroundColor: Colors.mainTheme2,
+                    color: "#ffff",
+                    paddingRight: "20px",
+                    paddingLeft: "20px",
+                    fontSize: "10px",
+                  }}
+                >
+                  {"80gm"}
+                </div>
+                <div
+                  className="line"
+                  style={{
+                    width: "100%",
+                    height: "2px",
+                    backgroundColor: "grey",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    paddingRight: "10px",
+                    paddingLeft: "10px",
+                    paddingTop: "5px",
+                    paddingBottom: "5px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {"₹79.00"}
+                </div>
+              </div>
             ) : name === "Scrub" ? (
-              <PriceCard weight="60gm" amount="₹69.00" />
+              <div
+                style={{ borderColor: Colors.mainTheme2 }}
+                className="flex flex-col mr-4 border rounded"
+              >
+                <div
+                  style={{
+                    backgroundColor: Colors.mainTheme2,
+                    color: "#ffff",
+                    paddingRight: "20px",
+                    paddingLeft: "20px",
+                    fontSize: "10px",
+                  }}
+                >
+                  {"60gm"}
+                </div>
+                <div
+                  className="line"
+                  style={{
+                    width: "100%",
+                    height: "2px",
+                    backgroundColor: "grey",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    paddingRight: "10px",
+                    paddingLeft: "10px",
+                    paddingTop: "5px",
+                    paddingBottom: "5px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {"₹69.00"}
+                </div>
+              </div>
             ) : (
               product_price.map((item, index) => (
-                <PriceCard key={index} weight={item.weight} amount={item.amount} />
+                <div
+                  style={{ borderColor: Colors.mainTheme2 }}
+                  className="flex flex-col mr-4 border rounded"
+                  key={index}
+                >
+                  <div
+                    style={{
+                      backgroundColor: Colors.mainTheme2,
+                      color: "#ffff",
+                      paddingRight: "20px",
+                      paddingLeft: "20px",
+                      fontSize: "10px",
+                    }}
+                  >
+                    {item.weight}
+                  </div>
+                  <div
+                    className="line"
+                    style={{
+                      width: "100%",
+                      height: "2px",
+                      backgroundColor: "grey",
+                    }}
+                  ></div>
+                  <div
+                    style={{
+                      paddingRight: "10px",
+                      paddingLeft: "10px",
+                      paddingTop: "5px",
+                      paddingBottom: "5px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {item.amount}
+                  </div>
+                </div>
               ))
             )}
           </div>
-          <hr className="separator" />
-          <div className="ingredients-container">
-            <div className="label">Ingredients:</div>
-            <div className="ingredients">{ingredients}</div>
+
+          <hr className="my-3"></hr>
+          <div className="text-gray-600 text-xl">ingredients :</div>
+          <div className="text-gray-400 text-xl">{ingredients}</div>
+          <div className="mt-2  0">
+            <button
+              onClick={handleAddToCartClick}
+              style={{ backgroundColor: Colors.mainTheme2 }}
+              className="flex uppercase mt-5 px-3 py-2 text-white text-sm font-medium rounded hover:bg-yellow-800 focus:outline-none focus:bg-yellow-800 disabled:opacity-30"
+            >
+              {<p>Inquiry</p>}
+              <svg
+                className="ml-2 h-5 w-5 mr-0"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </button>
           </div>
-          <div className="button-container">
-  <button className="inquiry-button" onClick={handleAddToCartClick}>
-    <span>Inquiry</span>
-    {/* <svg
-      className="button-icon"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-    </svg> */}
-  </button>
-</div>
         </div>
       </div>
     </main>
   );
 };
-
-const PriceCard = ({ weight, amount }) => (
-  <div className="price-card">
-    <div className="weight">{weight}</div>
-    <div className="amount">{amount}</div>
-  </div>
-);
 
 export default Index;

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { fbdata } from "../../firebase";
 import "./contact.css";
 import { v4 as uuid } from "uuid";
@@ -21,10 +21,9 @@ const Index = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const id = uuid();
     const res = await getDoc(doc(fbdata, "contactDetails", id));
-    console.log("res", res);
     if (!res.exists()) {
       await setDoc(doc(fbdata, "contactDetails", id), { User: formData });
       setFormData({
@@ -34,13 +33,12 @@ const Index = () => {
         address: "",
         description: "",
       });
-      console.log("Chat document created successfully!");
     }
   };
 
   return (
     <div className="centered-form-container">
-      <div className="contact-header" style={{fontFamily:'Urbanist'}}>
+      <div className="contact-header" style={{ fontFamily: 'Urbanist' }}>
         <h2>Contact Us</h2>
       </div>
       <form onSubmit={handleSubmit}>
@@ -98,7 +96,7 @@ const Index = () => {
             required
           />
         </div>
-        <button style={{backgroundColor:"#8A9556"}} type="submit">Submit</button>
+        <button style={{ backgroundColor: "#8A9556" }} type="submit">Submit</button>
       </form>
     </div>
   );

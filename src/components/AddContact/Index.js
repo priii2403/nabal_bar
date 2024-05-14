@@ -10,7 +10,6 @@ const AddContact = ({ onClose, initialContact }) => {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [Id, setId] = useState();
-  console.log(Id, initialContact);
   // Populate fields with initial contact data if provided
   useEffect(() => {
     if (initialContact) {
@@ -41,21 +40,18 @@ const AddContact = ({ onClose, initialContact }) => {
         email,
         description,
       };
-      console.log(data);
       // Check if it's an edit or add operation
       if (initialContact) {
         // Update existing contact
         await updateDoc(doc(fbdata, "contactDetails", initialContact.id), {
           User: data,
         });
-        console.log("Contact updated successfully!");
       } else {
         // Add new contact
         const c_id = uuid();
         const res = await getDoc(doc(fbdata, "contactDetails", c_id));
         if (!res.exists()) {
           await setDoc(doc(fbdata, "contactDetails", c_id), { User: data });
-          console.log("Contact added successfully!");
         }
       }
 
