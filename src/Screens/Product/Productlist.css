@@ -7,11 +7,13 @@
 }
 
 .main-container {
-  margin-top: 0;
   margin-top: 5rem; /* md:mt-20 equivalent */
   width: 100vw; /* w-screen equivalent */
   height: 100vh; /* h-screen equivalent */
   margin-bottom: 15rem; /* md:mb-60 equivalent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-container {
@@ -49,6 +51,7 @@
 @media (min-width: 768px) {
   .details-container {
     padding: 0;
+    width: 18rem; /* md:w-72 equivalent */
   }
 }
 
@@ -58,11 +61,13 @@
   font-size: 1.875rem; /* text-3xl equivalent */
   margin-top: 2.5rem; /* mt-10 equivalent */
 }
+
 @media screen and (max-width: 768px) {
   .product-name {
     margin-top: 0rem;
   }
 }
+
 @media screen and (max-width: 768px) {
   .details-container {
     padding: 0rem;
@@ -139,6 +144,7 @@
 .inquiry-button:disabled {
   opacity: 0.3;
 }
+
 .card {
   border: 1px solid #f1f9e3;
   border-radius: 10px;
@@ -151,16 +157,19 @@
   flex-direction: column;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .card-row {
   display: flex;
   flex-direction: row;
 }
+
 .R-card {
   border: 1px solid #ccc;
   border-radius: 5px;
   overflow-x: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .card:hover {
   transform: scale(1.05);
 }
@@ -168,10 +177,12 @@
 .card-details {
   padding: 20px;
 }
+
 .card-detail {
   color: gray;
   font-size: 10px;
 }
+
 .card-title {
   font-size: 1rem;
   margin-bottom: 5px;
@@ -182,16 +193,19 @@
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 768px) {
   img {
     max-width: 100%;
     height: auto;
   }
 }
+
 .price {
   font-weight: bold;
   padding-top: 3px;
 }
+
 .view-more-button {
   background-color: #5d7132;
   color: #ffffff;
@@ -205,16 +219,19 @@
 .view-more-button:hover {
   background-color: #445b1d;
 }
+
 .card-Rimage {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
+
 .card-img-top {
   width: 80%;
   height: 400px;
   /* object-fit: cover;  */
 }
+
 .products-header h2 {
   font-weight: bold;
   font-size: 40px;
@@ -230,19 +247,21 @@
   padding-right: 10px;
   padding-bottom: 10px;
 }
+
 .card-title {
   font-size: 20px;
   font-weight: 600;
   font-family: "Urbanist";
-
   text-align: center; /* Center the text */
 }
+
 .details {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 30px 0;
 }
+
 .app {
   max-width: 1200px;
   /* max-height: 800px; */
@@ -250,6 +269,7 @@
   margin: 80px auto;
   box-shadow: 0 0 1px #ccc;
 }
+
 .details .big-img {
   max-width: 600px;
   min-width: 600px;
@@ -258,6 +278,7 @@
   border-radius: 12px;
   max-height: 600px;
 }
+
 .big-img img {
   width: 100%;
   height: 200%;
@@ -271,6 +292,7 @@
   min-width: 290px;
   margin: 25px;
 }
+
 .box .cart {
   background: #333;
   color: white;
@@ -280,18 +302,22 @@
   padding: 10px 25px;
   margin-top: 15px;
 }
+
 .box .row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
+
 .box .row h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 .box .row span {
   color: crimson;
 }
+
 .loader-container {
   position: fixed;
   top: 0;
@@ -321,6 +347,7 @@
     transform: rotate(360deg);
   }
 }
+
 .card-image {
   padding-left: 30px;
   padding-top: 20px;
@@ -333,9 +360,11 @@
   object-fit: cover;
   border-radius: 10px; /* Maintain aspect ratio and crop image if needed */
 }
+
 .card-content {
   padding: 10px;
 }
+
 .card-tit {
   font-size: 18px;
   margin-top: 0;
@@ -345,6 +374,7 @@
   font-weight: bold;
   margin-right: 10;
 }
+
 .card-text {
   margin-bottom: 5px;
 }
@@ -353,11 +383,13 @@
   display: inline-block;
   color: #000; /* Adjust color as needed */
 }
+
 .line {
   flex-grow: 1;
   height: 1px;
   background-color: grey;
 }
+
 .price-container::before,
 .price-container::after {
   content: "";
@@ -375,6 +407,7 @@
 .price-container::after {
   right: 0;
 }
+
 .scrollable-cards {
   display: flex;
   align-items: center;
@@ -408,6 +441,7 @@
   margin-left: 50px;
   margin-right: 50px;
 }
+
 /* Media query for responsiveness */
 @media screen and (max-width: 768px) {
   .card-test {
@@ -415,6 +449,7 @@
     max-width: 250px; /* Adjust maximum width for smaller screens */
   }
 }
+
 @media (max-width: 768px) {
   .p {
     position: static;
@@ -423,6 +458,7 @@
     margin-top: 10px; /* Add margin to separate paragraphs */
   }
 }
+
 .content {
   text-align: center;
   font-family: "Gotu-Regular"; /* Center the content */
