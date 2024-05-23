@@ -12,158 +12,57 @@ const Index = () => {
     window.location.href = whatsappUrl;
   };
   return (
-    <main className="mt-0 md:mt-20 w-screen h-screen md:h-full md:mb-60   ">
-      <div className="flex flex-col md:flex-row justify-center gap-14 ">
-        <div className="flex flex-col relative items-center">
+    <main className="main-container">
+      <div className="content-container">
+        <div className="image-container">
           <img
-            class=" md:rounded-md mt-10  max-w-lg"
+            className="product-image"
             src={url}
             alt={name}
             width={300}
             height={300}
           />
         </div>
-        <div className="flex flex-col w-full p-6 md:p-0 md:w-72">
-          <h1 className="font-bold text-green-900 text-3xl mt-10">{name}</h1>
+        <div className="details-container">
+          <h1 className="product-name">{name}</h1>
 
-          <div className="text-gray-500 text-sm flex flex-row mt-5">
+          <div className="price-info">
             {name === "Cucumber" ||
-              name === "Three Layer (Multani Mitti, Coffee, Besan)" ? (
-              <div
-                style={{ borderColor: Colors.mainTheme2 }}
-                className="flex flex-col mr-4 border rounded"
-              >
-                <div
-                  style={{
-                    backgroundColor: Colors.mainTheme2,
-                    color: "#ffff",
-                    paddingRight: "20px",
-                    paddingLeft: "20px",
-                    fontSize: "10px",
-                  }}
-                >
-                  {"80gm"}
-                </div>
-                <div
-                  className="line"
-                  style={{
-                    width: "100%",
-                    height: "2px",
-                    backgroundColor: "grey",
-                  }}
-                ></div>
-                <div
-                  style={{
-                    paddingRight: "10px",
-                    paddingLeft: "10px",
-                    paddingTop: "5px",
-                    paddingBottom: "5px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {"₹79.00"}
-                </div>
+            name === "Three Layer (Multani Mitti, Coffee, Besan)" ? (
+              <div className="price-box">
+                <div className="price-box-header">{"80gm"}</div>
+                <div className="price-box-divider"></div>
+                <div className="price-box-body">{"₹79.00"}</div>
               </div>
             ) : name === "Scrub" ? (
-              <div
-                style={{ borderColor: Colors.mainTheme2 }}
-                className="flex flex-col mr-4 border rounded"
-              >
-                <div
-                  style={{
-                    backgroundColor: Colors.mainTheme2,
-                    color: "#ffff",
-                    paddingRight: "20px",
-                    paddingLeft: "20px",
-                    fontSize: "10px",
-                  }}
-                >
-                  {"60gm"}
-                </div>
-                <div
-                  className="line"
-                  style={{
-                    width: "100%",
-                    height: "2px",
-                    backgroundColor: "grey",
-                  }}
-                ></div>
-                <div
-                  style={{
-                    paddingRight: "10px",
-                    paddingLeft: "10px",
-                    paddingTop: "5px",
-                    paddingBottom: "5px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {"₹69.00"}
-                </div>
+              <div className="price-box">
+                <div className="price-box-header">{"60gm"}</div>
+                <div className="price-box-divider"></div>
+                <div className="price-box-body">{"₹69.00"}</div>
               </div>
             ) : (
               product_price.map((item, index) => (
-                <div
-                  style={{ borderColor: Colors.mainTheme2 }}
-                  className="flex flex-col mr-4 border rounded"
-                  key={index}
-                >
-                  <div
-                    style={{
-                      backgroundColor: Colors.mainTheme2,
-                      color: "#ffff",
-                      paddingRight: "20px",
-                      paddingLeft: "20px",
-                      fontSize: "10px",
-                    }}
-                  >
-                    {item.weight}
-                  </div>
-                  <div
-                    className="line"
-                    style={{
-                      width: "100%",
-                      height: "2px",
-                      backgroundColor: "grey",
-                    }}
-                  ></div>
-                  <div
-                    style={{
-                      paddingRight: "10px",
-                      paddingLeft: "10px",
-                      paddingTop: "5px",
-                      paddingBottom: "5px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {item.amount}
-                  </div>
+                <div className="price-box" key={index}>
+                  <div className="price-box-header">{item.weight}</div>
+                  <div className="price-box-divider"></div>
+                  <div className="price-box-body">{item.amount}</div>
                 </div>
               ))
             )}
           </div>
 
           <hr className="my-3"></hr>
-          <div className="text-gray-600 text-xl">ingredients :</div>
-          <div className="text-gray-400 text-xl">{ingredients}</div>
-          <div className="mt-2  0">
-            <button
-              onClick={handleAddToCartClick}
-              style={{ backgroundColor: Colors.mainTheme2 }}
-              className="flex uppercase mt-5 px-3 py-2 text-white text-sm font-medium rounded hover:bg-yellow-800 focus:outline-none focus:bg-yellow-800 disabled:opacity-30"
-            >
-              {<p>Inquiry</p>}
+          <div className="ingredients-title">Ingredients:</div>
+          <div className="ingredients-text">{ingredients}</div>
+          <div className="mt-2">
+            <button onClick={handleAddToCartClick} className="inquiry-button">
+              Inquiry
               <svg
                 className="ml-2 h-5 w-5 mr-0"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
