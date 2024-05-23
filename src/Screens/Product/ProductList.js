@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-import {
-  Colors,
-  slides,
-} from "../../components/utils";
+import { Colors, slides } from "../../components/utils";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { collection, getDocs } from "firebase/firestore";
@@ -18,30 +15,26 @@ const ProductList = () => {
   const initialProductsToShow = 12;
   const [image, setImages] = useState([]);
   useEffect(() => {
-
     const fetchDataFromFirestore = async () => {
       try {
-        const querySnapshot = await getDocs(collection(fbdata, "ProductDetails"));
+        const querySnapshot = await getDocs(
+          collection(fbdata, "ProductDetails")
+        );
         const products = [];
         querySnapshot.forEach((doc) => {
           products.push({ id: doc.id, ...doc.data() });
         });
 
-        const productData = products.map(item => {
+        const productData = products.map((item) => {
           const product = item.Products;
           return {
             name: product.Name,
             url: product.URL,
             ingredients: product.Ingredients,
-            benefit: product.Benefits
+            benefit: product.Benefits,
           };
         });
         setFiles(productData);
-
-
-
-
-
       } catch (error) {
         console.error("Error fetching data from Firestore:", error);
       }
@@ -100,7 +93,7 @@ const ProductList = () => {
           <div
             key={index}
             className="md:h-[70%] h-full"
-            style={{ display: "flex", width: "100%", }}
+            style={{ display: "flex", width: "100%" }}
           >
             <div
               style={{
@@ -191,11 +184,11 @@ const ProductList = () => {
                       }}
                     >
                       {file.name === "Cucumber" &&
-                        file.name === "Three Layer (Multani Mitti, Coffee, Besan)"
+                      file.name === "Three Layer (Multani Mitti, Coffee, Besan)"
                         ? "(80gm)"
                         : file.name === "Scrub"
-                          ? "(60gm)"
-                          : "(100gm)"}
+                        ? "(60gm)"
+                        : "(100gm)"}
                     </h6>
                   </div>
                   <h5 className="card-detail">{file.benifit}</h5>
